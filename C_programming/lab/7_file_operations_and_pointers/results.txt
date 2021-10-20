@@ -1,0 +1,4 @@
+Characters = 10
+Spaces = 2
+Lines = 1
+Words = 3
