@@ -1,4 +1,17 @@
 ========================================================================
+
+>>==>***************************************************************<=<<
+>>==>                                                               <=<<
+>>==>    git doesn't track folders so we need to add atleast        <=<<
+>>==>    one file to make it apper in github                        <=<<
+>>==>                                                               <=<<
+>>==>    how to link the local repository to a newly created        <=<<
+>>==>    remote repo                                                <=<<
+>>==>                                                               <=<<
+>>==>    % git remote add <name of repo> <ssh or https url>         <=<<
+>>==>***************************************************************<=<<
+
+
 => git configuration levels 
 
   --System # git config -system 
