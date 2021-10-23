@@ -1,0 +1,20 @@
+body {
+    background-color: #B5EAEA;
+}
+hr {
+    /* background-color: white; no need because 
+    we reduced the line size to zero so we are
+    actually using its borders*/ 
+    border-style: dotted none none; /*check notes*/
+    /* or border-top-style: dotted; */
+    border-color: gray;
+    border-width: 7px;
+    width: 4%;
+}
+h1{
+    color: #32502E;
+    font-family: cursive;
+}
+h3{
+    color: #66bfbf;
+}
