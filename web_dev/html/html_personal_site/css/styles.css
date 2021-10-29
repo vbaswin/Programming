@@ -11,9 +11,15 @@ hr {
     border-width: 7px;
     width: 4%;
 }
+@font-face {
+    font-family: "precious";
+    src: url(font/Precious.ttf);
+}/* it's just simple as this to create a custom font and 
+include it before you want using the fontface and wolla you 
+got it*/
 h1{
     color: #32502E;
-    font-family: cursive;
+    font-family: "precious";
 }
 h3{
     color: #66bfbf;
