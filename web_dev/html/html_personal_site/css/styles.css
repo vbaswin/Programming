@@ -24,3 +24,55 @@ h1{
 h3{
     color: #66bfbf;
 }
+
+img:hover {
+    background-color: gold;
+}
+
+h1:hover {
+    color: orange;
+}
+
+h3:hover {
+    color: orangered;
+}
+
+/******************** CLASS Selectors ************************/
+/* used everywhere you can use more words in a single "" of a 
+class*/
+.cooked-rice {
+    background-color: rgb(58, 117, 58);
+}
+
+.sheaf-of-rice {
+    background-color: rgb(0, 132, 255);
+}
+
+.curry-rice {
+    background-color: rgb(179, 111, 48);
+}
+
+.circular {
+    border-radius: 100%; /*to provide a circular border*/
+}
+/******************** ID Selectors **************************/
+/* rarely used use cannot repeat the same words and cannot include
+more than one word in "" of a class*/
+
+#chumma {
+    color: purple;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
