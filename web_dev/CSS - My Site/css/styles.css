@@ -1,0 +1,25 @@
+
+h1 {
+    margin: 0;
+}
+.top_container {
+    margin: 0px;
+    background-color: #F9F3DF;
+}
+body {
+    margin: 0;
+}
+
+.middle_container {
+    background-color: red;
+    height: 200px;
+    width: 200px;
+    /* margin: 0px 0px 0px 0px; chumma oru rasam :) */
+    /* border: solid 10px */
+}
+
+.bottom_container {
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+}
