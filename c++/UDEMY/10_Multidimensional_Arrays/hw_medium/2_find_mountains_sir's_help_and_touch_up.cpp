@@ -21,29 +21,31 @@ int main() {
     int n, m, arr[100][100];
     cin >> n >> m;
 
-    for (int i = 0;i < n; i++)
+    for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
             cin >> arr[i][j];
     
+    /* {d, r, u, l, ul, dr, ur, dl} */
     int di[8] = {1, 0, -1, 0, -1, 1, -1, 1};
     int dj[8] = {0, 1, 0, -1, -1, 1, 1, -1};
-    for (int i = 0;i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            int cur = arr[i][j];
 
-            bool is_mountain = true;
-            for (int k = 0; k < 8 && is_mountain; k++) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            bool valid_mountain = true; // check for larger neighbours
+
+            for (int k = 0; k < 8 && valid_mountain; k++) {
                 int ni = i + di[k];
                 int nj = j + dj[k];
 
                 if (ni < 0 || n <= ni || nj < 0 || m <= nj)
-                    continue;
-                if (arr[ni][nj] >= cur) {
-                    is_mountain = false;
-                    break;
-                }
+                    continue; // outside borders
+                if (arr[i][j] < arr[ni][nj])
+                    valid_mountain = false; /* no need to add
+                    break here because bool will stop the loop
+                    if it is false */
             }
-            if (is_mountain)
+
+            if (valid_mountain)
                 cout << i << " " << j << "\n";
         }
     }
