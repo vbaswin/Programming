@@ -71,7 +71,7 @@ int main() {
            ++max_num;
            continue;
         }
-        /* this should be after checking the boundaries * 0/
+        /* this should be after checking the boundaries */
         if (arr[r][c] != '.') { 
             cout << "Position already taken. Try again\n";
             ++max_num;
