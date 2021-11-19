@@ -5,16 +5,12 @@
     "terminal.integrated.automationShell.linux": "/bin/zsh",
     "lineJumper.linesToJump": 5,
     "editor.renderIndentGuides": false,
-    "editor.lineNumbers": "off",
     "window.enableMenuBarMnemonics": false,
     "terminal.integrated.altClickMovesCursor": false,
     "C_Cpp.default.compilerPath": "/usr/bin/gcc",
     "settingsSync.ignoredExtensions": [
-
-
     ],
-    "workbench.startupEditor": "welcomePage",
-    "workbench.activityBar.iconClickBehavior": "focus",
+    "workbench.startupEditor": "none",
     "window.menuBarVisibility": "compact",
     "window.customMenuBarAltFocus": false,
     "editor.renderLineHighlight": "none",
@@ -72,7 +68,19 @@
     },
     "workbench.statusBar.visible": false,
     "window.titleBarStyle": "custom",
-    "workbench.activityBar.visible": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.lineNumbers": "interval",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideActivityBar": false,
+    "zenMode.centerLayout": false,
+    "zenMode.restore": false,
+    "zenMode.silentNotifications": false,
+    "zenMode.hideTabs": false,
+    "workbench.editor.showTabs": false,
+    "git.showPushSuccessNotification": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.confirmSync": false,
+    "editor.detectIndentation": false,
     
     
 }
