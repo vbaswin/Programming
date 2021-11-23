@@ -1,4 +1,3 @@
-
 /* 
 NxN tic-tac-toe
 
@@ -27,7 +26,7 @@ Player x turn. Enter empty location (r, c): 2 2
 Invalid input. Try again
 Player x turn. Enter empty location (r, c): 5 5
 Invalid input. Try again
-Player x turn. Enter empty location (r, c): 3 3
+Player x turn. Enter empty location (r, c): 3 3 
 x..
 0x.
 0.x
@@ -102,6 +101,5 @@ int main() {
             cout << "\n";
         }
     }
-    
     return 0;
 }   

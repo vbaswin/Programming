@@ -1,0 +1,7 @@
+{
+    "editor.minimap.enabled": false,
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "workbench.editor.splitSizing": "split",
+    "editor.find.addExtraSpaceOnTop": false,
+    "C_Cpp.errorSquiggles": "Disabled"
+}
