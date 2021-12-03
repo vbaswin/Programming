@@ -5,19 +5,16 @@ Insertion sort using functions
 #include <stdio.h>
 
 void insertion_sort(int arr[], int n) {
-    for (int size = 1; size < n; ++size) {
-            int tmp = arr[size];
-            int pos;
-            for (int k = size; k > 0; --k) {
-                if (arr[k - 1] <= arr[size] && arr[size] <= arr[k]) {
-                    pos = k;
-                    break;
-                }
-            }
-            printf("%d\n", pos);
-            for (int j = size; j > pos; --j) 
-                arr[j] = arr[j - 1];
-            arr[pos] = tmp;
+	for (int i = 1; i < n;i++) {
+	int j = i - 1;
+    	int tmp = arr[i]; 
+
+	while (j >= 0 && arr[j] > tmp) {
+		arr[j + 1] = arr[j];
+		j = j - 1;
+	}
+	arr[j + 1] = tmp;
+	i++;
     }
 }
 

@@ -6,8 +6,8 @@ bubble sort using functions
 
 void bubble_sort(int arr[], int n) {
     /* you dont need to specify the length of the array while 
-    declaring the function if just need to know that you are 
-    inputting an int array */
+    declaring the function it just need to know that you are 
+    inputting an array */
     for (int pass = 0; pass < n - 1; pass++) {
         for (int comp = 0; comp < n -1 -pass; comp++) {
             if (arr[comp] > arr[comp + 1]) {
