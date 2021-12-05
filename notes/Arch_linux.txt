@@ -1,0 +1,33 @@
+check the devices connected to your system 
+lsblk -f
+mount a file system to a folder in /(root) or any other folder
+mount /dev/-dev_no(sda1 or sdb1) /directory path
+
+list network devices 
+networkctl
+
+connect to a network
+ip link set -device_no_(enp20u2) up|down
+
+path to xinitrc file
+/etc/X11/xinit/xinitrc
+
+path to bspwmrc file
+/home/vbaswin/.config/bspwm/bspwmrc
+
+put startup applications at the top in bspwmrc
+
+path to sxhkd file
+/home/vbaswin/.config/sxhkd/sxhkdrc
+
+open media files from terminal 
+xdg-open file name ed video.mp4
+
+change redshift config file path
+/home/vbaswin/.config/redshift/redshift.conf
+
+if no audio install alsa mixer
+and type alsamixer in terminal then f6 and select intel hda pch which will display volume bars
+if anything is mute (MM) change it to 00
+
+
