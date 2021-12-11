@@ -161,3 +161,15 @@ yy copy then p > copy and paste files
 :A      - go to end of line and start appending (insert mode)
 :dG     - delete from cursor to the end of file
 :w foo.txt - save a newly created file as this name 
+
+source ~/.config/nvim/init.vim - to reload the vim plugins
+
+
+    Ctrl-y Moves screen up one line
+    Ctrl-e Moves screen down one line
+    Ctrl-u Moves cursor & screen up ½ page
+    Ctrl-d Moves cursor & screen down ½ page
+    Ctrl-b Moves screen up one page, cursor to last line
+    Ctrl-f Moves screen down one page, cursor to first line
+
+
