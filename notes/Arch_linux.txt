@@ -150,16 +150,16 @@ yy copy then p > copy and paste files
 
 >>>>>> VIM SHORTCUTS >>>>>
 
-:daw    - delete a word
-:gg     - go to beginning of the file
-:G      - go to end of file
-:dd     - delete current line
-:e      - go to the end of next word
-:b      - go to beginning of the before word
-:0      - go to beginning of line'
-:$      - go to end of line
-:A      - go to end of line and start appending (insert mode)
-:dG     - delete from cursor to the end of file
+daw    - delete a word
+gg     - go to beginning of the file
+G      - go to end of file
+dd     - delete current line
+e      - go to the end of next word
+b      - go to beginning of the before word
+0      - go to beginning of line'
+$      - go to end of line
+A      - go to end of line and start appending (insert mode)
+dG     - delete from cursor to the end of file
 :w foo.txt - save a newly created file as this name 
 
 source ~/.config/nvim/init.vim - to reload the vim plugins
@@ -172,4 +172,40 @@ source ~/.config/nvim/init.vim - to reload the vim plugins
     Ctrl-b Moves screen up one page, cursor to last line
     Ctrl-f Moves screen down one page, cursor to first line
 
+if the file is not staging changes that means it is either having another separate git file 
+just delete it and everything is back to normal
 
+:y% - yank or copy all the contents of the file 
+gt - to move to the next tab in right direction
+gT -  "                      in left direction
+
+:s/<word to search>/<word to replace>/  - to search and replace a word
+:s/<word>/<replace word>/g - replace all occurences in current line
+:%s/<word>/<replace>/g - repace all in the entire file **** % *** this indicates a range from first
+                        to last line of the file
+:s/<word>/<replace>/gc - to confirm each substitution
+:s/<word>//g - the replace part is considered empty and all the searches are deleted
+
+gi - flag to ignore case sensitivity (\c is also used to ignore case sensitivity)
+gI - for case sensitive search 
+
+to substitute all occurrences of ‘foo’ to ‘bar’ in all lines starting from line 3 to line 10 
+:3,10s/foo/bar/g
+
+The dot . character indicates the current line and $ - the dollar sign the last line. To substitute ‘foo’ in all lines starting from the current line to the last one:
+
+:.,$s/foo/bar/
+
+For example to substitute each ‘foo’ with ‘bar’ starting from the current line and the four next lines
+
+:.,+4s/foo/bar/g
+
+The substitute command looks for the pattern as a string, not a whole word. If, for example, you were searching for “gnu”, the search find matches where “gnu” is embedded in larger words, such as “cygnus” or “magnum”.
+
+To search for a whole word, type \< to mark the beginning of a word, enter the search pattern, type \> to mark the end of a word:
+
+For example, to search for the word “foo” you would use \<foo\>:
+
+:s/\<foo\>/bar/
+
+>> ctrl + l to clear the search and redraw the screen 
