@@ -143,8 +143,8 @@ endif
 
 " Alternative syntax that is used in:
 "  http://www.vim.org/scripts/script.php?script_id=3064
-"syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
-"hi def link cCustomFunc  Function
+syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
+hi def link cCustomFunc  Function
 
 " Cluster for all the stdlib functions defined below
 syn cluster cppSTLgroup     contains=cppSTLfunction,cppSTLfunctional,cppSTLconstant,cppSTLnamespace,cppSTLtype,cppSTLexception,cppSTLiterator,cppSTLiterator_tag,cppSTLenum,cppSTLios,cppSTLcast
@@ -2291,3 +2291,40 @@ if version >= 508 || !exists("did_cpp_syntax_inits")
   HiLink cppRawDelimiter    Delimiter
   delcommand HiLink
 endif
+
+" >> ASWIN V B :) just copy pasted from the c.vim last part
+"
+"
+" -----------------------------------------------------------------------------
+"  Additional optional highlighting
+" -----------------------------------------------------------------------------
+
+" Operators
+syn match cOperator "\(<<\|>>\|[-+*/%&^|<>!=]\)="
+syn match cOperator "<<\|>>\|&&\|||\|++\|--\|->"
+syn match cOperator "[.!~*&%<>^|=,+-]"
+syn match cOperator "/[^/*=]"me=e-1
+syn match cOperator "/$"
+syn match cOperator "&&\|||"
+syn match cOperator "[][]"
+"
+"" Preprocs
+syn keyword cDefined defined contained containedin=cDefine
+hi def link cDefined cDefine
+
+"" Functions
+syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
+syn match cUserFunctionPointer "(\s*\*\s*\h\w*\s*)\(\s\|\n\)*(" contains=cDelimiter,cOperator
+"
+hi def link cUserFunction cFunction
+hi def link cUserFunctionPointer cFunction
+"
+"" Delimiters
+ syn match cDelimiter    "[();\\]"
+"" foldmethod=syntax fix, courtesy of Ivan Freitas
+syn match cBraces display "[{}]"
+
+" Links
+ hi def link cDelimiter Delimiter
+" foldmethod=syntax fix, courtesy of Ivan Freitas
+hi def link cBraces Delimiter

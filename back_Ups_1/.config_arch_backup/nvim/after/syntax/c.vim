@@ -307,11 +307,11 @@ hi def link cUserFunction cFunction
 hi def link cUserFunctionPointer cFunction
 "
 "" Delimiters
-syn match cDelimiter    "[();\\]"
+ syn match cDelimiter    "[();\\]"
 "" foldmethod=syntax fix, courtesy of Ivan Freitas
 syn match cBraces display "[{}]"
 
 " Links
-hi def link cDelimiter Delimiter
+ hi def link cDelimiter Delimiter
 " foldmethod=syntax fix, courtesy of Ivan Freitas
 hi def link cBraces Delimiter
