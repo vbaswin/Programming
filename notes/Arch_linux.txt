@@ -6,6 +6,33 @@ mount /dev/-dev_no(sda1 or sdb1) /directory path
 >>==>> to permenantly mount we have to edit /etc/fstab file and include the lines we want
 UUID=08264f2e-4e9e-403d-bbd0-72e62301e07c /media/mydisk (dir path) ext4 (partition type) defaults,noatime 0 2
 
+to mount an android devie install the simple-mtpfs package by downloading the git
+
+sudo pacman -S libtmtp
+git clone https://aur.archlinux.org/simple-mtpfs.git
+cd simple-mtpfs
+makepkg -si
+
+run simple-mtpfs -l to list all the available android devices
+note its number and run the command
+simple-mtpfs --device <number here 1> <mount point here phone> ********** This is possible only in the home directory not root like other storage partitions so mount it in 
+/home/vbaswin/phone or anything if you are in vbaswin then just type the directory name
+
+>> to unmount unmount <directory path>
+to format a drive first install using 
+sudo pacman -S dosfstools
+
+then sudo fdisk -l to list all the available devices and then
+to format in fat32 format use 
+sudo mkfs.vfat -I /dev/<device name eg: sda or sda1>
+use -I to override 
+
+sudo mkfs.ntfs /dev/sdb1 --> format in ntfs format
+
+For example, the following command will format my USB drive in FAT32 format and set label name for my USB drive as "sk".
+
+$ sudo mkfs.vfat /dev/sdb1 -n sk
+
 list network devices 
 networkctl
 
@@ -159,6 +186,61 @@ b      - go to beginning of the before word
 0      - go to beginning of line'
 $      - go to end of line
 A      - go to end of line and start appending (insert mode)
+I       - insert mode at the first non-blank character of the line
+gI: Insert at column 1 of the line.
+gi: Insert where insert mode was last stopped.
+
+************** deletion ********
+
+    C: Delete until the end of the line and enter insert mode.
+    s: Delete a number of characters and enter insert mode.
+    S: Delete a number of line and enter insert mode.
+
+3dk     - deletes 4 lines downward including the current line
+4dj     - deletes 5 lines upward including the current line
+
+o       - inser a line below
+O       - insert a line above
+
+di"  - delete the data inside the double quotes
+di"  - delete date including the double quotes
+
+ci"  - deletes the data within "" and enters into insert mode
+ca"  - deleles data including "" and enters into insert mode
+its possible for others also like '', <>, (), {}, [], ``
+
+To add 10 empty lines below the cursor in normal mode, type 10o<Esc> or to add them above the cursor type 10O<Esc>.
+
+r	replace a single character (does not use insert mode)
+J	join line below to the current one
+cc	change (replace) an entire line
+cw	change (replace) to the end of word
+c$	change (replace) to the end of line
+s	delete character at cursor and subsitute text
+S	delete line at cursor and substitute text (same as cc)
+xp	transpose two letters (delete and paste, technically)
+u	undo
+.	repeat last command
+4.  repeat last command 4 times
+
+
+g;  - go to last edit location
+g,  - comes bast to newest edit 
+>> - indent right 
+4>>  - indent right 4 times
+
+<< - indent left
+
+make bookmarks using m word and then a letter then press 'letter to go to the bookmark
+
+"alsfdkjal kjs;ldfkj ldfj"
+
+db - deletes words backwards
+
+
+59G     - move cursor to the desired line
+:59 move cursor to desired line here 59
+
 dG     - delete from cursor to the end of file
 :w foo.txt - save a newly created file as this name 
 
@@ -176,8 +258,6 @@ if the file is not staging changes that means it is either having another separa
 just delete it and everything is back to normal
 
 :y% - yank or copy all the contents of the file 
-gt - to move to the next tab in right direction
-gT -  "                      in left direction
 
 :s/<word to search>/<word to replace>/  - to search and replace a word
 :s/<word>/<replace word>/g - replace all occurences in current line
@@ -209,3 +289,35 @@ For example, to search for the word “foo” you would use \<foo\>:
 :s/\<foo\>/bar/
 
 >> ctrl + l to clear the search and redraw the screen 
+
+H - move cursor to top of screen
+L - move cursor to bottom of screen 
+
+in inser mode,
+ctrl-u deletes the current line 
+ctrl-w deletes the word before the cursor
+
+
+% - move cursor to matching parenthesis
+
+**** read and write files ****
+
+:1,10 w outfile	Saves lines 1 to 10 in outfile
+:1,10 w >> outfile	Appends lines 1 to 10 to outfile
+:r infile	Insert the content of infile
+:23r infile	Insert the content of infile under line 23
+
+
+**** tabs ****
+:tabnew - creates a new tab
+gt - to move to the next tab in right direction
+gT -  "                      in left direction
+
+:tabfirst - show first tab
+:tablast  - show last tab
+:tabm n - move current tab to nth position(rearrange tab)
+
+:tab ball - puts all open files in tabs
+:new abc.txt - edit abc.txt in new window
+
+
