@@ -16,6 +16,11 @@ makepkg -si
 run simple-mtpfs -l to list all the available android devices
 note its number and run the command
 simple-mtpfs --device <number here 1> <mount point here phone> ********** This is possible only in the home directory not root like other storage partitions so mount it in 
+
+umount -l /home/vbaswin/realme_narzo_30_5G
+>> if not mounting
+
+
 /home/vbaswin/phone or anything if you are in vbaswin then just type the directory name
 
 >> to unmount unmount <directory path>
