@@ -1,0 +1,8 @@
+in VIFM
+za: Toggle showing hidden files
+zo: Show hidden files
+zm: Hide hidden files
+it remembers your settings next time you open it
+
+to leave VIFM in such a way that the terminal directory is the same as last visited VIFMdirectory, use 
+:sh command in vifm

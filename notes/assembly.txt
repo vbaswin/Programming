@@ -1,0 +1,2 @@
+to run assembly file in gnu compiler which is compatible with x64 installation
+gcc -c <file name: hello.s> && ld <file name.o: hello.o> && ./a.out
