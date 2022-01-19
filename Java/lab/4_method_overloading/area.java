@@ -3,7 +3,6 @@
  Rollno: 222
  Authur name: Aswin V B
 */
-
 class area {
     void area(float x) {
         float a = x * x;
@@ -22,7 +21,7 @@ class area {
 class main {
     public static void main(String[] args) {
         area hi = new area();
-
+        
         hi.area(7);
         hi.area(22.5);
         hi.area(5, 4);

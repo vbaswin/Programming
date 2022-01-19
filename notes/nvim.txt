@@ -1,0 +1,158 @@
+to open last closed 10 files 
+'0 '1 '2 ... '9
+
+to save a session
+:mks my-session.nvim
+
+you can save multiple sessions by changing the session file name 
+
+to overrite a session file
+:mks! my-session.nvim
+
+if vim is already running and we need to restore a session
+:so (or :source) my-session.nvim
+
+daw    - delete a word
+gg     - go to beginning of the file
+G      - go to end of file
+dd     - delete current line
+e      - go to the end of next word
+b      - go to beginning of the before word
+0      - go to beginning of line'
+$      - go to end of line
+A      - go to end of line and start appending (insert mode)
+I       - insert mode at the first non-blank character of the line
+gI: Insert at column 1 of the line.
+gi: Insert where insert mode was last stopped.
+
+************** deletion ********
+
+    C: Delete until the end of the line and enter insert mode.
+    s: Delete a number of characters and enter insert mode.
+    S: Delete a number of line and enter insert mode.
+
+3dk     - deletes 4 lines downward including the current line
+4dj     - deletes 5 lines upward including the current line
+
+o       - inser a line below
+O       - insert a line above
+
+di"  - delete the data inside the double quotes
+da"  - delete date including the double quotes
+
+ci"  - deletes the data within "" and enters into insert mode
+ca"  - deleles data including "" and enters into insert mode
+its possible for others also like '', <>, (), {}, [], ``
+
+To add 10 empty lines below the cursor in normal mode, type 10o<Esc> or to add them above the cursor type 10O<Esc>.
+
+r	replace a single character (does not use insert mode)
+J	join line below to the current one
+cc	change (replace) an entire line
+cw	change (replace) to the end of word
+c$	change (replace) to the end of line
+s	delete character at cursor and subsitute text
+S	delete line at cursor and substitute text (same as cc)
+xp	transpose two letters (delete and paste, technically)
+u	undo
+.	repeat last command
+4.  repeat last command 4 times
+
+
+g;  - go to last edit location
+g,  - comes bast to newest edit 
+>> - indent right 
+4>>  - indent right 4 times
+
+<< - indent left
+
+make bookmarks using m word and then a letter then press 'letter to go to the bookmark
+
+"alsfdkjal kjs;ldfkj ldfj"
+
+db - deletes words backwards
+
+
+59G     - move cursor to the desired line
+:59 move cursor to desired line here 59
+
+dG     - delete from cursor to the end of file
+:w foo.txt - save a newly created file as this name 
+
+source ~/.config/nvim/init.vim - to reload the vim plugins
+
+
+    Ctrl-y Moves screen up one line
+    Ctrl-e Moves screen down one line
+    Ctrl-u Moves cursor & screen up ½ page
+    Ctrl-d Moves cursor & screen down ½ page
+    Ctrl-b Moves screen up one page, cursor to last line
+    Ctrl-f Moves screen down one page, cursor to first line
+
+if the file is not staging changes that means it is either having another separate git file 
+just delete it and everything is back to normal
+
+:y% - yank or copy all the contents of the file 
+
+:s/<word to search>/<word to replace>/  - to search and replace a word
+:s/<word>/<replace word>/g - replace all occurences in current line
+:%s/<word>/<replace>/g - repace all in the entire file **** % *** this indicates a range from first
+                        to last line of the file
+:s/<word>/<replace>/gc - to confirm each substitution
+:s/<word>//g - the replace part is considered empty and all the searches are deleted
+
+gi - flag to ignore case sensitivity (\c is also used to ignore case sensitivity)
+gI - for case sensitive search 
+
+to substitute all occurrences of ‘foo’ to ‘bar’ in all lines starting from line 3 to line 10 
+:3,10s/foo/bar/g
+
+The dot . character indicates the current line and $ - the dollar sign the last line. To substitute ‘foo’ in all lines starting from the current line to the last one:
+
+:.,$s/foo/bar/
+
+For example to substitute each ‘foo’ with ‘bar’ starting from the current line and the four next lines
+
+:.,+4s/foo/bar/g
+
+The substitute command looks for the pattern as a string, not a whole word. If, for example, you were searching for “gnu”, the search find matches where “gnu” is embedded in larger words, such as “cygnus” or “magnum”.
+
+To search for a whole word, type \< to mark the beginning of a word, enter the search pattern, type \> to mark the end of a word:
+
+For example, to search for the word “foo” you would use \<foo\>:
+
+:s/\<foo\>/bar/
+
+>> ctrl + l to clear the search and redraw the screen 
+
+H - move cursor to top of screen
+L - move cursor to bottom of screen 
+
+in inser mode,
+ctrl-u deletes the current line 
+ctrl-w deletes the word before the cursor
+
+
+% - move cursor to matching parenthesis
+
+**** read and write files ****
+
+:1,10 w outfile	Saves lines 1 to 10 in outfile
+:1,10 w >> outfile	Appends lines 1 to 10 to outfile
+:r infile	Insert the content of infile
+:23r infile	Insert the content of infile under line 23
+
+
+**** tabs ****
+:tabnew - creates a new tab
+gt - to move to the next tab in right direction
+gT -  "                      in left direction
+
+:tabfirst - show first tab
+:tablast  - show last tab
+:tabm n - move current tab to nth position(rearrange tab)
+
+:tab ball - puts all open files in tabs
+:new abc.txt - edit abc.txt in new window
+
+

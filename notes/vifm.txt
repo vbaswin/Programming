@@ -6,3 +6,36 @@ it remembers your settings next time you open it
 
 to leave VIFM in such a way that the terminal directory is the same as last visited VIFMdirectory, use 
 :sh command in vifm
+
+navigate between two directory structure - tab
+rest navigation all same as vim gg for top G for bottom
+
+
+preview the file or folder contents in the same side as directory - e
+                "                   in the adjacent side - w (most preferred)
+
+to focus and unfocus the preview : shift + tab
+
+also press - w to exit out of preview mode
+
+za: Toggle showing hidden files
+zo: Show hidden files
+zm: Hide hidden files
+
+rename - cw
+cW - change only the name and not .extension
+
+'h - go to home directory
+mn - bookmark the directory
+'n - show bookmarks with n we give as value we can change the value
+    eg: 'j for another bookmark
+
+to show all the bookmarks we made - :marks
+
+q - to exit out of bookmarks
+
+dd - delete a file 
+then p to paste or u for undo > just like vim
+yy copy then p > copy and paste files 
+
+

@@ -18,13 +18,52 @@ Consider the following functions:
 #include <iostream>
 using namespace std;
 
-int menu() {
-    int choice = -1;
-    
+double a, b;
+
+void add(){
+    cout << a + b << "\n";
+}
+void subtract(){
+    cout << a - b << "\n";
+}
+void multiply() {
+    cout << a * b << "\n";
+}
+void divide (){
+    cout << a / b << "\n";
+}
+
+void read() {
+    cout << "Enter the numbers: ";
+    cin >> a >> b;
+}
+
+void menu(){
+    int choice = -1, cnt = 0;
+    while (true) {
+        cout << "\nEnter the option: \n1) add \n2) subtract\n3) multiply\n";
+        cout << "4) divide\n5) exit\n";
+        cin >> choice;
+        
+        if (choice == 1)
+            read(), add();
+        else if (choice == 2)
+            read(), subtract();
+        else if (choice == 3)
+            read(), multiply();
+        else if (choice == 4)
+            read(), divide();
+        else if (choice == 5)
+            break;
+        else {
+            cout << "incorrect input\n";
+            continue;
+        }
+        ++cnt;
+        cout << "\nNo of operations completed: " << cnt << "\n";
+    }
 }
 
 int main() {
-    int a, b;
-    cin >> a >> b;
-    menu(a, b);
+    menu();
 }
