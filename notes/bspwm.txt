@@ -1,0 +1,4 @@
+to move a tiled window to the direction you want
+super + right mouse drag to desired section to exchange the tiled window positions
+
+so you don't need to close the entire window to get your desired layout
