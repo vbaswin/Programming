@@ -72,19 +72,23 @@ void insert_end() {
 }
 
 void insert_after_rollno() {
-    newnode = create_node();
     int no;
-    printf("Enter the rollno after which student is to be inserted: ");
-    scanf("%d", &no);
-    temp = head;
-    while(temp->rollno != no && temp->link != NULL)
-        temp = temp->link;
-    if (temp->rollno == no) {
-        newnode->link = temp->link;
-        temp->link = newnode;
+    if (head == NULL)
+        printf("\n\nEmpty list\n\n");
+    else {
+        printf("Enter the rollno after which student is to be inserted: ");
+        scanf("%d", &no);
+        temp = head;
+        while(temp->rollno != no && temp != NULL)
+            temp = temp->link;
+        if (temp->rollno == no) {
+            newnode = create_node();
+            newnode->link = temp->link;
+            temp->link = newnode;
+        }
+        else
+            printf("\nStudent not found\n");
     }
-    else
-        printf("\nStudent not found\n");
 }
 
 void delete_front() {
@@ -119,39 +123,34 @@ void delete_end() {
 void delete_using_rollno() {
     struct node *prev;
     int no;
-    printf("Enter the rollno of student to delete: ");
-    scanf("%d", &no);
     if (head == NULL)
         printf("\n\nList empty\n");
     else {
+        printf("Enter the rollno of student to delete: ");
+        scanf("%d", &no);
+        
         temp = head;
-        while (temp != NULL) {
-            if (temp->link == NULL && temp->rollno != no) {
-                printf("\nStudent not found\n\n");
-                break;
-            }
-            if (temp->rollno != no) {
-                prev = temp;
-                temp = temp->link;
-            }
-            else {
-                if (temp == head) {
+        while (temp->rollno != no && temp->link != NULL) {
+            prev = temp;
+            temp = temp->link;
+        }
+
+        if (temp->rollno == no) {
+                if(temp == head) {
                     head = head->link;
                     free(temp);
-                    break;
                 }
                 else if (temp->link == NULL) {
                     prev->link = NULL;
                     free(temp);
-                    break;
                 }
-                else { 
+                else {
                     prev->link = temp->link;
                     free(temp);
-                    break;
                 }
-            }
         }
+        else  
+            printf("\nStudent not found\n\n");
     }
 }
 void display() {

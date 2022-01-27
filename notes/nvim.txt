@@ -1,4 +1,10 @@
+save all the tabs and buffers
+:wa
+save all the tabs and buffers and close them
+:xa
+
 to open last closed 10 files 
+
 '0 '1 '2 ... '9
 
 to save a session
@@ -36,6 +42,11 @@ gi: Insert where insert mode was last stopped.
 
 o       - inser a line below
 O       - insert a line above
+
+    to select between brackets go one of brackets and v%
+    as % to go to next bracket :)
+
+
 
 di"  - delete the data inside the double quotes
 da"  - delete date including the double quotes
