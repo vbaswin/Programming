@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <unistd.h>
 
 struct room{
     int name; //room no
@@ -14,15 +15,6 @@ struct room{
 
 struct room *head, *new, *temp, *prev, *p;
 
-int menu(){ 
-    printf("\nEnter one of options\n");
-    printf("\n1) Book rooms\n2) Vacate room\n3) Create rooms\n4) Remove rooms\n");
-    printf("5) Display rooms\n6) Exit\n\n");
-    int choice;
-    scanf("%d", &choice);
-    return choice;
-}
-
 int deluxe_aval, double_aval; 
 void rooms_aval() {
     deluxe_aval = 0, double_aval = 0;
@@ -34,22 +26,22 @@ void rooms_aval() {
                 ++double_aval;
         }
     }
-    printf("\nNo of rooms available\n\nDeluxe: %d\nDouble: %d\n", deluxe_aval,
-            double_aval);
 }
 void vacate() {
     int name;
-    printf("Enter the room no to vacate: ");
+    printf("\n\tEnter the room no to vacate: ");
     scanf("%d", &name);
     for (temp = head; temp->name != name && temp->link != NULL; temp = temp->link);
     if (temp->name == name) {
         if (temp->status == 1) 
-            printf("\nRoom already vacated!!\n");
-        else
+            printf("\n\t\tRoom already vacated!!\n");
+        else {
             temp->status = 1;
+            printf("\n\t\tRoom vacated successfully!!\n");
+        }
     }
     else 
-        printf("\nRoom not found!!\n");
+        printf("\n\t\tRoom not found!!\n");
 }
 
 int name = 0, door = 2, x = 0, y = 0, rooms = 0;
@@ -92,30 +84,40 @@ void create_room(int type) {
 }
 void display() {
     if (head == NULL) 
-        printf("\nNo rooms allocated currently!!\n");
+        printf("\n\t\tNo rooms allocated currently!!\n");
     else {
         int ch, key;
-        printf("\nDisplay details of \n1) All rooms\n2) single room\n");
+        printf("\n\t\t\tDisplay details of \n\t1) All rooms\n\t2) single room\n");
+        printf("\t3) No of available rooms only\n\t4) No need\n");
         scanf("%d", &ch);
         if (ch == 1) {
-            printf("Roomno\tArea\tDoors\tx\ty\tstatus\n");
+            printf("\t\tRoomno\tArea\tDoors\tx\ty\tstatus\n");
             for (temp = head; temp != NULL; temp= temp->link) 
-            printf("%d\t%d\t%d\t%d\t%d\t%d\n", temp->name, temp->area, temp->door, 
+            printf("\t\t%d\t%d\t%d\t%d\t%d\t%d\n", temp->name, temp->area, temp->door, 
                     temp->x, temp->y, temp->status);
             rooms_aval();
         }
         else if (ch == 2) {
-            printf("\nEnter room no to be displayed: ");
+            printf("\n\tEnter room no to be displayed: ");
             scanf("%d", &key);
             for (temp = head; temp->name != key && temp->link != NULL; temp=temp->link);
             if (temp->name == key) {
-                printf("\nRoomno\tArea\tDoors\tx\ty\tstatus\n");
-                printf("%d\t%d\t%d\t%d\t%d\t%d\n", temp->name, temp->area, temp->door, 
-                    temp->x, temp->y, temp->status);
+                printf("\n\t\tRoomno\tArea\tDoors\tx\ty\tstatus\n");
+                printf("\t\t%d\t%d\t%d\t%d\t%d\t%d\n", temp->name, temp->area, 
+                        temp->door, temp->x, temp->y, temp->status);
             }
             else 
-                printf("\nRoom not found!!\n");
+                printf("\n\t\tRoom not found!!\n");
         }
+        else if (ch == 3) {
+            rooms_aval();
+            printf("\n\t\tNo of rooms available\n\n\tDeluxe: %d\n\tDouble: %d\n", 
+                    deluxe_aval, double_aval);
+
+        }
+        else if (ch == 4);
+        else
+            printf("\n\tIncorrect input!!\n");
     }
 }
 int nearest(int x, int y){
@@ -123,36 +125,39 @@ int nearest(int x, int y){
 }
 
 void book() {
-    int deluxe = 0, double_rm = 0;
+    int deluxe, double_rm;
     while (1) {
+        deluxe = 0, double_rm = 0;
+        rooms_aval();
         display();
-        printf("\nEnter the no of rooms needed\nDeluxe: ");
+        printf("\n\t\tEnter the no of rooms needed\n\tDeluxe: ");
         scanf("%d", &deluxe);
-        printf("Double: ");
+        printf("\tDouble: ");
         scanf("%d", &double_rm);
 
         if (deluxe > deluxe_aval || double_rm > double_aval) {
             int try;
-            printf("\nRooms not available\n\n1) display rooms\n2) Try again\n");
-            printf("3) Exit\n");
+            printf("\n\t\tRooms not available!!\n\n\t1) Try again\n\t2) Exit\n");
             scanf("%d", &try);
             if (try == 1)
-                display();
-            else
                 continue;
+            else if (try == 2)
+                return;
+            else 
+                printf("\n\t\tIncorrect input\n");
         }
         else 
             break;
     }
 
-    printf("\n1) if nearest room required\n2) random room\n");
+    printf("\n\t\t\tLocation\n\n\t1) Nearest room required\n\t2) Random room\n");
     int choice;
     scanf("%d", &choice);
     int i = 0, j = 0;
 
     if (choice == 1) {
         int x, y, d;
-        printf("Enter the location(x, y): ");
+        printf("\n\tEnter the location(x y): ");
         scanf("%d %d", &x, &y);
         while (i < deluxe || j < double_rm) {
             int min1 = 100000, min2 = 100000;
@@ -201,6 +206,7 @@ void book() {
         }
 
     } 
+    printf("\n\t\tRooms booked successfully!!\n");
     
 }
 
@@ -208,9 +214,9 @@ void remove_room(){
 // Remove using key(key=room no)
     int no;
     if (head == NULL)
-        printf("\n\nNO rooms allocated\n");
+        printf("\n\n\t\tNO rooms allocated\n");
     else {
-        printf("\nEnter the room no to remove: ");
+        printf("\n\tEnter the room no to remove: ");
         scanf("%d", &no);
         
         temp = head;
@@ -232,9 +238,10 @@ void remove_room(){
                     prev->link = temp->link;
                     free(temp);
                 }
+                printf("\n\t\tRoom removed successfully!!\n");
         }
         else  
-            printf("\nRoom no not found\n\n");
+            printf("\n\t\tRoom not found!!\n");
     }
 }
 
@@ -246,26 +253,28 @@ void initial_create() {
 }
 void admin() {
     while (1) {
-        printf("\nEnter one of options\n");
-        printf("\n1) Create room\n2) Remove room\n3) Display room \n");
-        printf("4) Exit to login page\n");
+        printf("\n\t\t\tEnter one of options\n");
+        printf("\n\t1) Create room\n\t2) Remove room\n\t3) Display room \n");
+        printf("\t4) Exit to login page\n");
         int choice;
         scanf("%d", &choice);
         if (choice == 1) {
             while (1) {
-                printf("\nEnter the type of room[1 -> Deluxe, 2 -> Double], 3 -> Exit: "                );
+                printf("\n\tEnter the type of room[1 -> Deluxe, 2 -> Double]");
+                printf(", 3 -> Exit: ");
                 int type, n;
                 scanf("%d", &type);
                 if (type == 3)
                     break;
                 else if (type != 1 && type != 2) {
-                    printf("\nincorrect input\n");
+                    printf("\n\t\tIncorrect input!!\n");
                     break;
                 }
-                printf("\nHow many no of rooms: ");
+                printf("\n\tHow many no of rooms: ");
                 scanf("%d", &n);
                 for (int i = 0; i < n; ++i)
                     create_room(type);
+                printf("\n\t\tRooms created successfully!!\n");
             }
         }
         else if (choice == 2)
@@ -275,14 +284,14 @@ void admin() {
         else if (choice == 4)
             break;
         else 
-            printf("\nIncorrect input\n");
+            printf("\n\t\tIncorrect input!!\n");
     }
 }
 void user() {
     while (1) {
-        printf("\nEnter one of options\n");
-        printf("\n1) Book room\n2) Vacate room\n3) Display room\n");
-        printf("4) Exit to login page\n");
+        printf("\n\t\t\tEnter one of options\n");
+        printf("\n\t1) Book room\n\t2) Vacate room\n\t3) Display room\n");
+        printf("\t4) Exit to login page\n");
         int choice;
         scanf("%d", &choice);
         if (choice == 1) 
@@ -294,14 +303,16 @@ void user() {
         else if (choice == 4)
             break;
         else 
-            printf("\nIncorrect Input\n");
+            printf("\n\t\tIncorrect Input\n");
     }
 }
 
+void documentation();
+
 void login() {
     while (1) {
-        printf("\n\tLOGIN\n");
-        printf("1) Admin\n2) User\n3) End program\n");
+        printf("\n\n\t\t\tLOGIN\n");
+        printf("\t1) Admin\n\t2) User\n\t3) End program\n\t4) Documentation\n");
         int login;
         scanf("%d", &login);
         if (login == 1)
@@ -310,14 +321,84 @@ void login() {
             user();
         else if (login == 3)
             break;
+        else if (login == 4)
+            documentation();
         else
-            printf("\nIncorrect input\n");
+            printf("\nt\tIncorrect input\n");
     }
+}
+void animation(char str[]) {
+    char some[3];
+    for (int i = 0; i < 3; ++i)
+        some[i] = ' ';
+    for (int i = 0; i< 3; ++i) {
+        some[i] = '.';
+        printf("\r%s %s", str, some);
+        fflush(stdout);
+        usleep(600000);
+    }
+}
+void page() {
+    printf("\n\n\t\t\t\tRBS\n");
+    printf("\t\t\tRoom Booking System\n\t\t\t       * * *\n\n");
+    printf("\t\t\tCreated by\n");
+    printf("\t\t\t\tAswin V B       -> 222\n");
+    printf("\t\t\t\tAthira Jayaram  -> 224\n");
+    printf("\t\t\t\tAswin P S       -> 221\n");
+    printf("\t\t\t\tAthira D        -> 223\n\n");
+    char str[10] = "\t\t\t   ";
+    animation(str);
 }
 
 int main() {
     initial_create(); 
+    page();
     login();
-    printf("\n\tThank you for using RBS\n\tCome again\n");
+    printf("\n\t\t\tThank you for using RBS\n\t\t\tVisit again\n\n");
     return 0;
+}
+
+
+void documentation() {
+    printf(
+    "\n\t------------------------------------------------------------------\n"
+    "\n                           Documentation for RBS\n\n"
+    "\tThere are 2 logins \n\n\tA. Admin\n\tB. User\n\n\tC. End program\n"
+    "\tD. Documentation\n\n\n\t~~~\n"
+    "\tA. Admin has 4 powers\n"
+    "\t\t1. Create room\n\t\t2. Remove room\n\t\t3. Display room\n\t\t"
+    "4. Exit to login"
+    " page\n"
+    "\n\t1. Create room - This is of the most powerfull one. You can"
+    "\n\tcreate any no of rooms that you want. The only limit is your"
+    "\n\tprocessing power\n"
+    "\n\n\t** There are 15 rooms already created at first: "
+    "\n\t   8 - Deluxe, 7 - Double **\n"
+    "\n\n\t2. Remove room - Another functionality. You can remove any room \n"
+    "\tjust by specifying the room no. It's that simple.\n"
+    "\n\n\t3. Display room -\n\n"
+    "\tIt is present in both admin and user and also used throughout"
+    "\n\tthe program. It has three options.\n\n"
+    "\t\t1. All rooms - show all rooms in the system\n"
+    "\t\t2. single room - \n"
+    "\t\t\tusing room no to find the room no to display\n"
+    "\t\t3. Available rooms only - \n"
+    "\t\t\tshows the available no of deluxe and\n"
+    "\t\t\tdouble rooms to book\n\n\n"
+    "\t~~~\n\tB. User also has 4 powers\n"
+    "\t\t1. Book room\n\t\t2. Vacate room\n\t\t3. Display room\n\t\t4. Exit to login"
+    " page\n\n"
+    "\t1. Book room - Booking rooms is as simple as entering the no of" 
+    "\n\tdeluxe and no of double rooms required.\n\n"
+    "\tEvery time you book rooms, you are also able to use the display\n"
+    "\toption to make sure you book rooms correctly.\n\n"
+    "\tYou can find the nearest rooms to the location you give or just" 
+    "\n\trandom rooms available. It's entirely your choice\n\n"
+    "\t2. Vacate room - Enter the room no you want to vacate and" 
+    "\n\tit's done.\n\n"
+    "\n\tIn every menu or options shown, you are given separate option" 
+    "\n\tto exit out of it.\n"
+    "\tIn login page you have the option to end the program.\n\n"
+    "\n\t----------------------------------------------------------------\n\n"
+    );
 }
