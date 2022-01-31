@@ -1,0 +1,6 @@
+
+
+    <C-n>,<C-p> for next/previous item
+    <C-d>, <C-u> for scrolling up/down in preview window
+    <C-x>, <C-v>, <C-t> for opening in split, vsplit, new tab
+    <CR> to confirm selection

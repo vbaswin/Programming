@@ -1,3 +1,12 @@
+
+    d for creating a directory
+
+    % for creating a new file
+
+    In explorer mode you can get with issuing a command 
+    :Sexplore - to open explore in horizontal split
+    :Vexplore - tp open explore in vertical split
+
 save all the tabs and buffers
 :wa
 save all the tabs and buffers and close them
