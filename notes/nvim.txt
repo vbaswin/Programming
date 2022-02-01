@@ -1,3 +1,4 @@
+to interchange the positions of two split windows <c-w><c-r>
 
     d for creating a directory
 
