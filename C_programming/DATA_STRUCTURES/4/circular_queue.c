@@ -50,8 +50,10 @@ void menu() {
             enqueue();
         else if(in == 2)
             dequeue();
-        else
+        else if (in == 3)
             break;
+        else 
+            printf("\nIncorrect input\n");
         q_display();
     }
 }

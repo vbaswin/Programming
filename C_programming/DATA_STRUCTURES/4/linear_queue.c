@@ -6,7 +6,15 @@
 
 #include <stdio.h>
 
-int front = -1, rear = -1, n, a[20];
+int front = 0, rear = -1, n, a[20];
+
+void q_display() {
+    printf("\n");
+    if (!(rear == -1 || front == rear + 1))
+        for (int i = front; i <= rear; ++i)
+            printf("%d  ", a[i]);
+}
+
 void enqueue() {
     int val;
     printf("Enter the value: ");
@@ -14,26 +22,23 @@ void enqueue() {
     if (rear == n -1) 
         printf("Queue full\n");
     else {
-        if (rear == -1)
-            front = 0;
         ++rear;
         a[rear] = val;
     }
+    q_display();
 }
 
 void dequeue() {
     int data;
-    if (front == -1 && rear == -1) 
+    if (rear == -1 || front == rear + 1) 
         printf("Queue empty\n");
-    else
+    else {
         a[front] = data;
         ++front;
+    }
+    q_display();
 }
-void q_display() {
-    printf("\n");
-    for (int i = front; i <= rear && !(front == -1 || rear == -1); ++i)
-        printf("%d  ", a[i]);
-}
+
 void menu() {
     int in;
     while(1) {
@@ -43,9 +48,10 @@ void menu() {
             enqueue();
         else if (in == 2)
             dequeue();
-        else
+        else if (in == 3)
             break;
-        q_display();
+        else 
+            printf("\nIncorrect input\n");
     }
 }
 void main() {

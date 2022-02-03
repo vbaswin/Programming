@@ -47,7 +47,7 @@ gi: Insert where insert mode was last stopped.
     s: Delete a number of characters and enter insert mode.
     S: Delete a number of line and enter insert mode.
 
-3dk     - deletes 4 lines downward including the current line
+>> 3dk     - deletes 4 lines downward including the current line
 4dj     - deletes 5 lines upward including the current line
 
 o       - inser a line below
@@ -114,6 +114,32 @@ if the file is not staging changes that means it is either having another separa
 just delete it and everything is back to normal
 
 :y% - yank or copy all the contents of the file 
+
+
+>>>> SEARCH AND REPLACE >>>
+
+go to the word and press
+
+* - search for the word the cursor is on (same as /)
+    n - search for next occurence
+    N - search backwards
+
+# - backward search for word cursor is on (same as ?)
+
+in esc mode so typing commands
+
+/ - search forward
+? - search backward
+    
+    \c - case insensitive
+ie; /\cdata
+    \C - case sensitive
+    \<word\> - search for one word only
+
+to search for /** 
+    /\/\*\*
+
+
 
 :s/<word to search>/<word to replace>/  - to search and replace a word
 :s/<word>/<replace word>/g - replace all occurences in current line
