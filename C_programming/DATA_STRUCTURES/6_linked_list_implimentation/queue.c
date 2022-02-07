@@ -60,8 +60,10 @@ int main() {
             enqueue();
         else if (choice == 2)
             dequeue();
-        else if (choice == 3)
+        else if (choice == 3) {
+            display();
             break;
+        }
         else
             printf("\nIncorrect input\n");
     }

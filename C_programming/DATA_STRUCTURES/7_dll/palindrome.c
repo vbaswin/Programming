@@ -6,11 +6,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct node {
     char c;
-    struct node *next;
-    struct node *prev;
+    struct node *next, *prev;
 }*head = NULL, *temp, *new, *start, *end;
 
 void create_node(char c) {
@@ -22,25 +22,23 @@ void create_node(char c) {
         head = new;
         temp = new;
     }
-    else
-    new->prev = temp;
-    temp->next = new;
-    temp = new;
+    else {
+        new->prev = temp;
+        temp->next = new;
+        temp = new;
+    }
 }
 
-int palindrome() {
-    int paln = 1;
+bool palindrome() {
     start = head;
     end = temp;
     while (start != end) {
-        if (start->c != end->c) {
-            paln = 0;
-            break;
-        }
+        if (start->c != end->c)
+            return false;
         start = start->next;
         end = end->prev;
     }
-    return paln;
+    return true;
 }
 
 int main() {
@@ -51,10 +49,9 @@ int main() {
     for (int i = 0; str[i] != '\0'; ++i)
         create_node(str[i]);
 
-    int paln = palindrome();
-    if (paln) 
-        printf("\n%s is palindrome\n", str);
+    if (palindrome()) 
+        printf("\nPalindrome\n");
     else
-        printf("\n%s is not palindrome\n", str);
+        printf("\nNot palindrome\n");
     return 0;
 }
