@@ -1,3 +1,12 @@
+to search for the recently closed file type :ls and the one with # gives the answer
+to open it type :e#
+to open it in new split window: 
+    :sp# or :vsp#
+to open it in new tab:
+    :tabe# or for shorter :tabnew
+
+    you can see that in :reg
+
 to interchange the positions of two split windows <c-w><c-r>
 
     d for creating a directory
