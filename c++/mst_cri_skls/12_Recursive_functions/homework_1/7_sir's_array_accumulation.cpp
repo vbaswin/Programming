@@ -15,11 +15,11 @@
 using namespace std;
 
 void accumulate_arr(int arr[], int len) {
-    if (len == 0)
+    if (len == 1)
         return;
     accumulate_arr(arr, len - 1);
-    for (int i = 0; i < len; ++i)
-        arr[len - 1] += i;
+    arr[len - 1] += arr[len -2];
+    // just be amazed at how this entirely works
 }
 
 int main() {
