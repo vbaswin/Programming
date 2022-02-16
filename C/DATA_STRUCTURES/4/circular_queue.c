@@ -8,11 +8,21 @@
 #include <stdio.h>
 int front = -1, rear = -1, n, a[20];
 
+void q_display() {
+    if (front != -1) {
+        printf("\n");
+        int i;
+        for (i = front; i != rear; i = (i+1) % n)
+            printf("%d --> ", a[i]);
+        printf("%d", a[i]);
+    }
+}
+
 void enqueue() {
-    int val;
     if (front == (rear +1) % n)
         printf("Queue full\n");
     else {
+        int val;
         printf("Enter the value: ");
         scanf("%d", &val);
         if (front == -1)
@@ -20,25 +30,17 @@ void enqueue() {
         rear = (rear + 1) % n;
         a[rear] = val;
     }
-
+    q_display();
 }
 
 void dequeue() {
     if (front == -1 && rear == -1) 
         printf("Queue empty\n");
-    else {
-        a[front] = 0;
+    else if (front == rear)
+        front = -1, rear = -1;
+    else 
         front = (front + 1) % n;
-        if (a[front] == 0 && a[rear] == 0)
-            front = -1, rear = -1;
-    }
-
-}
-
-void q_display() {
-    printf("\n");
-    for (int i = 0; i < n; i++)
-        printf("%d  ", a[i]);
+    q_display();
 }
 
 void menu() {
@@ -54,12 +56,10 @@ void menu() {
             break;
         else 
             printf("\nIncorrect input\n");
-        q_display();
     }
 }
 void main() {
    printf("Enter the size of circular queue: ");
    scanf("%d", &n);
    menu();
-
 }

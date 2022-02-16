@@ -9,33 +9,41 @@
 int front = 0, rear = -1, n, a[20];
 
 void q_display() {
-    printf("\n");
-    if (!(rear == -1 || front == rear + 1))
-        for (int i = front; i <= rear; ++i)
-            printf("%d  ", a[i]);
+    if (front != -1) {
+        printf("\n");
+        int i;
+        for (i = front; i < rear; ++i)
+                printf("%d --> ", a[i]);
+        printf("%d", a[i]);
+    }
 }
 
 void enqueue() {
-    int val;
-    printf("Enter the value: ");
-    scanf("%d", &val);
     if (rear == n -1) 
         printf("Queue full\n");
     else {
-        ++rear;
-        a[rear] = val;
+        int val;
+        printf("Enter the value: ");
+        scanf("%d", &val);
+        if (front == -1 && rear == -1) {
+            ++front, ++rear;
+            a[rear] = val;
+        }
+        else {
+            ++rear;
+            a[rear] = val;
+        }
     }
     q_display();
 }
 
 void dequeue() {
-    int data;
-    if (rear == -1 || front == rear + 1) 
+    if (rear == -1)
         printf("Queue empty\n");
-    else {
-        a[front] = data;
+    else if (front == rear)
+        front = -1, rear =-1;
+    else 
         ++front;
-    }
     q_display();
 }
 

@@ -8,16 +8,23 @@
 #include <stdio.h>
 int top, n, a[20];
 
+void stk_display() {
+    printf("\n");
+    for (int i = top; 0 <= i && top != -1; i--)
+       printf("%d\n", a[i]);
+}
+
 void push() {
-    int val;
-    printf("Enter the value: ");
-    scanf("%d", &val);
-    if (top == n - 1)
-        printf("Stack full\n");
+   if (top == n - 1)
+        printf("\nStack full!!\n\n");
     else {
+        int val;
+        printf("Enter the value: ");
+        scanf("%d", &val);
         ++top;
         a[top] = val;
     }
+    stk_display();
 }
 
 void pop() {
@@ -28,11 +35,7 @@ void pop() {
         a[top] = data;
         --top;
     }
-}
-
-void stk_display() {
-   for (int i = top; 0 <= i && top != -1; i--)
-       printf("%d\n", a[i]);
+    stk_display();
 }
 
 void menu() {
@@ -44,9 +47,10 @@ void menu() {
             push();
         else if (in == 2)
             pop();
-        else
+        else if (in == 3)
             break;
-        stk_display();
+        else
+            printf("\nIncorrect input!!\n\n");
     }
 }
 
