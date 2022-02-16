@@ -74,7 +74,7 @@ void insert_end() {
 void insert_after_rollno() {
     int no;
     if (head == NULL)
-        printf("\n\nEmpty list\n\n");
+        printf("\nEmpty list\n\n");
     else {
         printf("Enter the rollno after which student is to be inserted: ");
         scanf("%d", &no);
@@ -103,7 +103,7 @@ void delete_front() {
 void delete_end() {
     struct node *prev;
     if (head == NULL)
-        printf("\n\nList empty\n");
+        printf("\nList empty\n");
     else {
         temp = head;
         while(temp->link != NULL) {
@@ -124,7 +124,7 @@ void delete_using_rollno() {
     struct node *prev;
     int no;
     if (head == NULL)
-        printf("\n\nList empty\n");
+        printf("\nList empty\n");
     else {
         printf("Enter the rollno of student to delete: ");
         scanf("%d", &no);
@@ -156,16 +156,13 @@ void delete_using_rollno() {
 void display() {
     temp = head;
     if (temp != NULL) {
-        printf("\n");
+        printf("\n\n");
         while(temp->link != NULL) {
             printf("%s %d %0.2f --> ", temp->name, temp->rollno, temp->marks);
             temp = temp->link;
         }
-        printf("%s %d %0.2f", temp->name,temp->rollno, temp->marks);
+        printf("%s %d %0.2f\n", temp->name,temp->rollno, temp->marks);
     }
-    else
-        printf("\nlinked list empty");
-    printf("\n\n");
 }
 void actions() {
     struct node *head, *newnode, *temp;
