@@ -1,0 +1,45 @@
+>>>>>>> fuzzy finder in fish shift+tab life changer
+if you are already using tab to activate this <ctrl>s 
+        ie: to toggle search field while the pager is active
+
+
+
+<ctrl>f - to auto complete without using leftarrow 
+<ctrl>p - prev command
+<ctrl>n - next command
+<ctrl>a - move cursor to beginning of line
+<ctrl>e - move cursor to end of line
+
+<ctrl>b - move left one character
+<ctrl>f - move right one character
+
+<alt>b - move left one word
+<alt>f - move right one word
+
+<ctrl>h - delete one character to left
+<ctrl>d - delete one character to right
+
+<alt>d - cut one word to right
+<ctrl>u - cut all characters
+<ctrl>w - cut one word to left
+<ctrl>y - paste the characters previously cut
+
+
+Managing the screen
+
+CTRL-L: Clear screen (just like clear).
+CTRL-S: Stop screen output. Useful for preventing processes from spamming the stdout.
+CTRL-Q: Resume screen output.
+
+Managing processes
+
+CTRL-C: Terminate the foreground process. (Also can be used to delete the whole line.)
+CTRL-Z: Suspend the foreground process (use fg and bg to resume).
+CTRL-D: Exit shell (just like exit).
+
+Accessing Command History
+
+CTRL-R: Search the command history. Accept with ENTER/RETURN, abort with CTRL-G.
+CTRL-P/UP: The previous command in history.
+CTRL-N/DOWN: The next command in history.
+
