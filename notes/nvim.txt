@@ -1,3 +1,5 @@
+:: >>> : <ctrl>a can be used to increment no helpful in macros
+
 To suspend your running Vim
 Ctrl + Z
 

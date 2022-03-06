@@ -1,9 +1,10 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
-highlight EndOfBuffer ctermfg=white ctermbg=black
+highlight EndOfBuffer ctermfg=DarkGrey ctermbg=black
 hi StatusLine ctermbg=Black ctermfg=DarkGrey
 hi StatusLineNC ctermbg=Black ctermfg=DarkGrey
 highlight VertSplit ctermbg=white ctermfg=DarkGrey
+
 " change the color of tabs
 hi TablineFill ctermbg=Black ctermfg=Black
 hi Tabline ctermbg=Black ctermfg=DarkGrey
