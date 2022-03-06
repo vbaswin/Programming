@@ -1,6 +1,7 @@
-[Added Associations]
-text/x-csrc=nvim.desktop;firefox.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-4T54F1.desktop;
 
 [Default Applications]
-x-scheme-handler/tg=userapp-Telegram Desktop-4T54F1.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop

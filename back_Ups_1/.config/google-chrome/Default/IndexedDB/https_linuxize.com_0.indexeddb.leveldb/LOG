@@ -1,0 +1,7 @@
+2022/02/27-20:10:21.513 118a Reusing MANIFEST /home/vbaswin/.config/google-chrome/Default/IndexedDB/https_linuxize.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/02/27-20:10:21.513 118a Recovering log #3
+2022/02/27-20:10:21.513 118a Reusing old log /home/vbaswin/.config/google-chrome/Default/IndexedDB/https_linuxize.com_0.indexeddb.leveldb/000003.log 
+2022/02/27-20:12:54.187 11ea Level-0 table #5: started
+2022/02/27-20:12:54.229 11ea Level-0 table #5: 18354 bytes OK
+2022/02/27-20:12:54.262 11ea Delete type=0 #3
+2022/02/27-20:12:54.262 11ea Manual compaction at level-0 from (begin) .. (end); will stop at (end)

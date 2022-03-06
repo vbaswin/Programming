@@ -1,0 +1,6 @@
+2022/02/27-15:41:39.197 11ae Creating DB /home/vbaswin/.config/google-chrome/Default/IndexedDB/https_www.chrisatmachine.com_0.indexeddb.leveldb since it was missing.
+2022/02/27-15:41:39.454 11ae Reusing MANIFEST /home/vbaswin/.config/google-chrome/Default/IndexedDB/https_www.chrisatmachine.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/02/27-15:42:11.919 11ae Level-0 table #5: started
+2022/02/27-15:42:11.960 11ae Level-0 table #5: 1470 bytes OK
+2022/02/27-15:42:11.990 11ae Delete type=0 #3
+2022/02/27-15:42:11.991 11ae Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,12 @@
+2022/03/05-14:37:29.659 265 Reusing MANIFEST /home/vbaswin/.config/google-chrome/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/03/05-14:37:29.659 265 Recovering log #4
+2022/03/05-14:37:29.697 265 Reusing old log /home/vbaswin/.config/google-chrome/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000004.log 
+2022/03/05-14:37:48.354 86a Level-0 table #8: started
+2022/03/05-14:37:48.455 86a Level-0 table #8: 1704342 bytes OK
+2022/03/05-14:37:48.531 86a Delete type=0 #4
+2022/03/05-14:37:49.987 86a Compacting 1@1 + 1@2 files
+2022/03/05-14:37:50.075 86a Generated table #9@1: 10664 keys, 628208 bytes
+2022/03/05-14:37:50.075 86a Compacted 1@1 + 1@2 files => 628208 bytes
+2022/03/05-14:37:50.104 86a compacted to: files[ 0 0 1 0 0 0 0 ]
+2022/03/05-14:37:50.104 86a Delete type=2 #8
+2022/03/05-14:37:50.104 86a Delete type=2 #5

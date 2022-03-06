@@ -7,8 +7,8 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'    
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'nvim-telescope/telescope-fzf-native.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
