@@ -1,16 +1,3 @@
-
-to customise tabs in nvim 
-
-TabLineSel - is the current (so to say) active tab label.
-TabLine - are the labels which are not currently active.
-TabLineFill - is the remaining of the tabline where there is no labels (background).
-
-
-to open a file in the current window when working with a file use 
-
-:vi <file name>
-or use this in a new tab to open the file in it
-
 To suspend your running Vim
 Ctrl + Z
 
@@ -29,7 +16,8 @@ to open it in new tab:
 
     you can see that in :reg
 
-to interchange the positions of two split windows <c-w><c-r>
+to interchange the positions of two split windows <c-w><c-r> - no need to c-r just
+<c-w>r is fine
 
     d for creating a directory
 
@@ -234,11 +222,101 @@ ctrl-w deletes the word before the cursor
 gt - to move to the next tab in right direction
 gT -  "                      in left direction
 
+1gt : to go to tab one,
+2gt : to go to tab two,
+3gt : to go to tab three,
+
 :tabfirst - show first tab
 :tablast  - show last tab
 :tabm n - move current tab to nth position(rearrange tab)
+eg: tabm 0 will put current tab to the first
 
 :tab ball - puts all open files in tabs
 :new abc.txt - edit abc.txt in new window
 
+to customise tabs in nvim 
+
+TabLineSel - is the current (so to say) active tab label.
+TabLine - are the labels which are not currently active.
+TabLineFill - is the remaining of the tabline where there is no labels (background).
+
+
+to open a file in the current window when working with a file use 
+
+:vi <file name>
+or use this in a new tab to open the file in it
+
+*************** folds ****************
+zf{motion}
+
+zf'a - to start a fold from current line to mark a
+zf3j - folds current line along with below 3 lines 
+
+za - opens and closes fold (zo -opens fold, zc -closes fold)
+zO - opens all folds at the cursor
+zM - closes all folds
+zR - opens all folds <<<<< 
+zm - increases foldlevel by one
+zr - decrease foldlevel by one
+
+zd - to delete folds at cursor position (no text deleted only fold markers)
+zD - to recursively delete folds at cursor
+zE - delete all the folds in your file
+
+to save folds :mkview
+when you reload the file, run :loadview >> vim will restore the folds to the 
+state the file was in at the time you ran :mkview
+
+:mkview supports multiple revisions of a file's state, so you can give a view
+a number and reload later on.
+eg: :mkview 2 make a few changes, and then run :loadview 2, it will revert to the previous state of the file as far as folds are concerned. Note that it won’t restore the file itself to the previous state; if you delete 10 lines of text after saving a view, Vim won’t restore those lines when you load an older view using :loadview.
+
+it can be done automatically by adding the 
+
+
+************** marks *****************
+
+m{lowercase} eg: ma
+this sets the mark to a
+
+to go to mark a 
+'a
+
+to view marks :marks
+
+
+ma 	set mark a at current cursor location
+'a 	jump to line of mark a (first non-blank character in line)
+`a 	jump to position (line and column) of mark a
+d'a 	delete from current line to line of mark a
+d`a 	delete from current cursor position to position of mark a
+c'a 	change text from current line to line of mark a
+y`a 	yank text to unnamed buffer from cursor to position of mark a
+:marks 	list all the current marks
+:marks aB 	list marks a, B
+
+
+Commands like d'a operate "linewise" and include the start and end lines.
+ie: it include full ines
+Commands like d`a operate "characterwise" and include the start but not the end character. it include till the cursor postion when the mark was added
+
+
+]' 	jump to next line with a lowercase mark
+[' 	jump to previous line with a lowercase mark
+]` 	jump to next lowercase mark
+[` 	jump to previous lowercase mark 
+
+    Each file can have mark a – use a lowercase mark to jump within a file.
+    There is only one file mark A – use an uppercase mark to jump between files.
+
+    if you set capital the previous marks of other files with A will be removed
+
+
+to delete marks :delm or delmarks
+
+:delmarks a 	delete mark a
+:delmarks a-d 	delete marks a, b, c, d
+:delmarks abxy 	delete marks a, b, x, y
+:delmarks aA 	delete marks a, A
+:delmarks! 	delete all lowercase marks for the current buffer (a-z
 

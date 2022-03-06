@@ -1,13 +1,23 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
 highlight EndOfBuffer ctermfg=white ctermbg=black
-hi StatusLine ctermbg=Black ctermfg=Grey
+hi StatusLine ctermbg=Black ctermfg=DarkGrey
 hi StatusLineNC ctermbg=Black ctermfg=DarkGrey
 highlight VertSplit ctermbg=white ctermfg=DarkGrey
-
+" change the color of tabs
 hi TablineFill ctermbg=Black ctermfg=Black
 hi Tabline ctermbg=Black ctermfg=DarkGrey
-hi Title ctermfg=Red ctermbg=Blue
+hi Title ctermfg=Black ctermbg=Grey
+
+" set autosave folds on exit
+augroup remember_folds
+  autocmd!
+  au BufWinLeave ?* mkview 1
+  au BufWinEnter ?* silent! loadview 1
+augroup END
+
+" change color of folds
+hi Folded ctermbg=black ctermfg=DarkGrey
 
 set noswapfile
 set backupdir=~/.cache/vim
