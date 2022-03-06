@@ -1,3 +1,84 @@
+>> move floating window: ctrl + arrows
+
+Common keys
+
+Super + Escape	sxhkd: reload configuration
+Super + Break	Logoff menu
+Super + Q	close focused window
+Super + Shift + Q	kill focused window
+
+Window management
+
+Super M	toggle tiled/monocle mode
+Super Y	bring marked window to current receptacle
+Super G	swap focused window with the biggest one on the current desktop
+Super T	tiled mode for focused window
+Super Shift T	pseudo_tiled mode for focused window
+Super S	floating mode for focused window
+Super F	fullscreen mode for focused window
+
+Window flags
+
+Super Ctrl M	Flag: mark
+Super Ctrl X	Flag: locked
+Super Ctrl Y	Flag: sticky
+Super Ctrl Z	Flag: private
+
+Focus
+
+Super { H, J, K, L }	Move focus to {west, south, north, east}
+Super Shift { H, J, K, L }	Move focused window to {west, south, north, east}
+Super { P, B, Comma, Period }	Path jump {parent, brother, first, second}
+Super N	select next window on active desktop
+Super Shift N	select previous window on active desktop
+Super >	select next desktop on active monitor
+Super <	select previous desktop on active monitor
+Super O	focus history: walk backwards
+Super I	focus history: walk forwards
+Alt Tab	select previous active window
+Alt Shift Tab	select previous active desktop
+
+Preselection / Receptacles
+
+Super Ctrl { H, J, K, L }	preselect: {west, south, north, east}
+Super Ctrl Space	remove preselection for active window
+Super Ctrl Shift Space	remove preselection for active desktop
+
+Window size/position
+
+Ctrl Alt { H, J, K, L }	resize active window outwards {west, south, north, east}
+Ctrl Alt Shift { H, J, K, L }	resize active window inwards {west, south, north, east}
+Ctrl Alt { , , , }	move current window (floating mode only)
+
+Desktop management
+
+Super { ^, 0-9, ß, ´ }	select desktop {0-12}
+Super Shift { ^, 0-9, ß, ´ }	move active window to desktop {0-12}
+Super Ctrl { ^, 0-9, ß, ´ }	swap active destop and desktop {0-12}
+Super Ctrl Shift { ^, 0-9, ß, ´ }	move active destop to the monitor of desktop {0-12}
+Super Ctrl Shift { +, - }	move active destop to the {next,prev} monitor
+Super Ctrl Shift { H, J, K, L }	move active destop to the {western,southern,northern,eastern} monitor
+
+Applications
+
+Super Tab	Rofi: open bookmarks
+Super Break	Rofi: shutdown/sleep
+Super Printscreen	ksnapshot
+Super Enter	urxvt
+Hyper R	ranger
+Hyper K	krusader
+Hyper F	Rofi: FontAwesome-selection
+Hyper P	Rofi: Asterisk (dial a phone number)
+Hyper D	Rofi: combi
+Hyper Shift D	Rofi: drun
+Hyper Ctrl D	Rofi: ssh
+Hyper Ctrl C	Rofi: edit config files
+Hyper S	Rofi: Screen-Layout
+Hyper O	Pseudo-terminal
+Work
+Super A	Toggle CCWF-RDP visibility
+Hyper A	Rofi: CCWF-RDP
+
 to move a tiled window to the direction you want
 super + right mouse drag to desired section to exchange the tiled window positions
 

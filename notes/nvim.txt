@@ -1,3 +1,25 @@
+
+to customise tabs in nvim 
+
+TabLineSel - is the current (so to say) active tab label.
+TabLine - are the labels which are not currently active.
+TabLineFill - is the remaining of the tabline where there is no labels (background).
+
+
+to open a file in the current window when working with a file use 
+
+:vi <file name>
+or use this in a new tab to open the file in it
+
+To suspend your running Vim
+Ctrl + Z
+
+will suspend the process and get back to your shell
+
+fg
+will resume (bring to foreground) your suspended Vim.
+
+
 to search for the recently closed file type :ls and the one with # gives the answer
 to open it type :e#
 to open it in new split window: 

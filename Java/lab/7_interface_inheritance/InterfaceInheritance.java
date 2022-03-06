@@ -39,7 +39,7 @@ class display implements connection {
     }
 }
 
-class example extends display{
+class InterfaceInheritance extends display{
     public static void high() {
         System.out.println("\n" + "main class");
     }

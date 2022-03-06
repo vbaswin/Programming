@@ -1,3 +1,16 @@
+
+to install hp drivers
+
+sudo pacman -Sy cups
+sudo systemctl enable --now cups
+sudo pacman -S hplip
+sudo hp-setup -i
+sudo pacman -S wget
+hp-plugin -i
+// it may show installation failed but it actually works
+sudo pacman -S system-config-printer // and make printer default and done
+ 
+
 check the devices connected to your system 
 lsblk -f
 mount a file system to a folder in /(root) or any other folder
