@@ -1,3 +1,5 @@
+to remove all unnecessary packages in arch linux
+sudo pacman -R $(pacman -Qdtq) >> in bash not fish
 
 to install hp drivers
 

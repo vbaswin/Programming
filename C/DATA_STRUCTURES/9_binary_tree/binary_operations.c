@@ -7,161 +7,141 @@ struct node {
 };
 
 struct node *create_node() {
-    struct node *newnode = (struct node *)malloc(sizeof(struct node));
+    struct node *newnode;
+    newnode = (struct node *)malloc(sizeof(struct node));
     newnode->LC = NULL;
     newnode->RC = NULL;
     return newnode;
 }
 
 struct node *create() {
-    struct node *newnode = create_node();
-    int choice;
-    printf("Enter data[-1 for no node]: ");
-    scanf("%d", &choice);
-    if (choice == -1)
+    int data;
+    printf("\nEnter data[-1 no node]: ");
+    scanf("%d", &data);
+    if(data == -1)
         return NULL;
-    newnode->data = choice;
-    printf("LC of %d\n", newnode->data);
-    newnode->LC = create();
-    printf("RC of %d\n", newnode->data);
-    newnode->RC = create();
-    return newnode;
+    struct node *ptr = create_node();
+    ptr->data = data;
+    printf("LC of %d", data);
+    ptr->LC = create();
+    printf("RC of %d", data);
+    ptr->RC = create();
+    return ptr;
 }
 
-void inorder(struct node *link) {
-    if (link == NULL)
+void inorder(struct node *root) {
+    if(root == NULL)
         return;
-    inorder(link->LC);
-    printf("%d ", link->data);
-    inorder(link->RC);
+    inorder(root->LC);
+    printf("%d ", root->data);
+    inorder(root->RC);
 }
 
-void preorder(struct node *link) {
-    if (link == NULL)
+void search(struct node *root, struct node **ptr, int key) {
+    if (root == NULL)
         return;
-    printf("%d ", link->data);
-    preorder(link->LC);
-    preorder(link->RC);
-}
-
-void postorder(struct node *link) {
-    if (link == NULL)
+    if (*ptr != NULL)
         return;
-    postorder(link->LC);
-    postorder(link->RC);
-    printf("%d ", link->data);
-}
-
-struct node *parent1;
-void search_parent(struct node *link,struct node *parent, int key) {
-    if (link == NULL)
-        return;
-    if (link->data != key) {
-        if (link->LC != NULL)
-            search_parent(link->LC,link, key);
-        if (link->RC != NULL)
-            search_parent(link->RC,link, key);
-    }
-    else
-        parent1 = parent;
-}
-void search1(struct node *root, int key) {
-        if (root->data == key)
-            parent1 = root;
-        else {
-            search_parent(root->LC, root, key);
-            search_parent(root->RC, root, key);
-        }
-}
-void search(struct node *root) {
-    while(1) {
-        parent1 = NULL;
-        int key;
-        printf("\nEnter key to search: ");
-        scanf("%d", &key);
-        search1(root, key); 
-        if (parent1 == NULL)
-            printf("%d not found\n", key);
-        else
-            printf("%d found\n", key);
-        char c, ch;
-        scanf("%c",&ch);
-        printf("continue search[y/n]: ");
-        scanf("%c", &c);
-        if (c == 'n')
-            break;
+    if (root->data == key)
+        *ptr = root;
+    else {
+        search(root->LC, ptr, key);
+        search(root->RC, ptr, key);
     }
 }
-struct node *node;
-void search_node(struct node *link, int key) {
-    if (link == NULL)
-        return;
-    if (link->data == key) {
-        node = link;
-        return;
-    }
-    search_node(link->LC, key);
-    search_node(link->RC, key);
-}
+
 void insert(struct node *root) {
-    while(1) {
-        node = NULL;
-        int key;
-        printf("\nEnter key to search: ");
-        scanf("%d", key);
-        search_node(root, key);
-        if(node == NULL)
-            printf("%d not found", key);
-        else {
-            char c;
-            printf("Insert[L/R]: ");
-            scanf("%c", &c);
-            if (c == 'L') {
-                if (node->LC != NULL) 
-                    printf("\nnode present insertion not possible\n");
-                else {
-                    int new;
-                    printf("\nEnter data to insert: ");
-                    scanf("%d", &new);
-                    struct node *newnode = create();
-                    newnode->data = new;
-                    node->LC = newnode;
-                    printf("\ninsertion successful\n");
-                }
-            }
-            else if (c == 'R') {
-                if (node->RC != NULL) 
-                    printf("\nnode present insertion not possible\n");
-                else {
-                    int new;
-                    printf("\nEnter data to insert: ");
-                    scanf("%d", &new);
-                    struct node *newnode = create();
-                    newnode->data = new;
-                    node->RC = newnode;
-                    printf("\ninsertion successful\n");
-                }
-            }
-        }
-        char c, ch;
-        scanf("%c",&ch);
-        printf("continue insertion[y/n]: ");
-        scanf("%c", &c);
-        if (c == 'n')
-            break;
+    struct node *ptr = NULL;
+    int key;
+    printf("Enter data to search: ");
+    scanf("%d", &key);
+    search(root, &ptr, key);    
+    if (ptr == NULL) {
+        printf("\nElement not found\n");
+        return;
+    }
+    else {
+        if (ptr->LC == NULL || ptr->RC == NULL) {
+            struct node *tmp = create_node();
+            int n;
+            printf("Enter data: ");
+            scanf("%d", &n);
+            tmp->data = n;
+            if (ptr->LC == NULL)
+                ptr->LC = tmp;
+            else if (ptr->RC == NULL)
+                ptr->RC = tmp;
+            printf("\nInsertion successful\n");
+        }        
+        else
+            printf("\nHave 2 child nodes insertion not possible\n");
     }
 }
 
+void search_parent(struct node *root, struct node *p, 
+        struct node **parent, int key) {
+    printf("hi");
+    if (root == NULL)
+        return;
+    if (*parent != NULL)
+        return;
+    if (root->data == key) {
+        *parent = p;
+        return;
+    }
+    else {
+        p = root;
+        search_parent(root->LC, p, parent, key);
+        search_parent(root->RC, p, parent, key);
+    }
+}
+
+void delete(struct node *root) {
+    struct node *parent = NULL, *p = NULL;
+    int key;
+    printf("Enter data to delete: ");
+    scanf("%d", key);
+    search_parent(root, p, &parent, key);
+    if (parent == NULL) {
+        printf("\nElement not found\n");
+        return;
+    }
+    else {
+        struct node *ptr1 = parent->LC, *ptr2 = parent->RC;
+        if (ptr1->data == key) {
+            if (parent->LC->LC == NULL && parent->LC->RC == NULL) {
+                p = parent->LC;
+                parent->LC = NULL;
+                free(p);
+            }
+            else
+                printf("\nchild nodes present deletion not possible\n");
+        }
+        else if (ptr2->data == key) {
+            if (ptr2->LC == NULL && ptr2->RC == NULL) {
+                p = parent->RC;
+                parent->RC = NULL;
+                free(p);
+            }
+            else
+                printf("\nchild nodes present deletion not possible\n");
+        }
+    }
+}
 int main() {
-    struct node *root = create();
-    printf("\nInorder: ");
-    inorder(root);
-    printf("\nPreorder: ");
-    preorder(root);
-    printf("\nPostorder: ");
-    postorder(root);
+    struct node *root = create(); 
     printf("\n");
-    search(root);
+    inorder(root);
+    printf("\n");
+    /*
     insert(root);
+    printf("\n");
+    inorder(root);
+    printf("\n");
+    */
+    delete(root);
+    printf("\n");
+    inorder(root);
+    printf("\n");
     return 0;
 }

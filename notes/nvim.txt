@@ -1,3 +1,12 @@
+`` or '': to move to prev cursor >> most preferred `` apostrophes as they will move
+                                    cursor to not the postion but backticks just 
+                                    puts it at the start of the line
+g; & g, to move back and forward in the list of your previous edit locations
+
+
+<ctrl>w - cut one word to left
+
+
 :: >>> : <ctrl>a can be used to increment no helpful in macros
 
 To suspend your running Vim
