@@ -1,3 +1,7 @@
+to disable screen blacking during idle put these command to .xinitrc
+xset -dpms
+xset s off
+
 to remove all unnecessary packages in arch linux
 sudo pacman -R $(pacman -Qdtq) >> in bash not fish
 
