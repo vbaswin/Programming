@@ -19,20 +19,39 @@
 #include <iostream>
 using namespace std;
 
-int path(int grid[100][100], int row, int col, int ROWS, int COLS) {
-    if (row == ROWS && col == COLS)
-        return 0;
-    if (col <= COLS && grid[row][col] > grid[row][col+1]) {
-        int sum = grid[row]
+int di[3] = {1,0,1};
+int dj[3] = {0,1,1};
 
+int path_sum(int grid[100][100], int ROWS, int COLS, int row = 0, int col = 0) {
+    int sum = grid[row][col];
+    if (row == ROWS-1 && col == COLS-1)  // not just ROWS it is ROWS -1
+        return sum;
+    int max_val = -1000000, max_idx = -1;
 
+    int new_row, new_col;
+    for (int d = 0; d < 3; ++d) {
+        new_row = row + di[d];
+        new_col = col + dj[d];
 
-
-        path(grid, row, col+1, ROWS, COLS);
+        if (new_row >= ROWS || new_col >= COLS)
+            continue;
+        if (grid[new_row][new_col] > max_val) 
+            max_val = grid[new_row][new_col], max_idx = d;
     }
+    new_row = row + di[max_idx];
+    new_col = col + dj[max_idx];
+
+    return sum + path_sum(grid, ROWS, COLS, new_row, new_col);
 }
+
 int main() {
-
+    int grid[100][100], r, c;
+    cin >> r >> c;
+    for (int i = 0; i < r; ++i) {
+        for (int j =0 ; j < c ; ++j) {
+            cin >> grid[i][j];
+        }
+    }
+    cout << path_sum(grid, r, c) << "\n";
+    return 0;
 }
-
-

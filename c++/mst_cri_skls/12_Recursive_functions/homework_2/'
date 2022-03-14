@@ -1,0 +1,40 @@
+/*
+     Homework 17: Fibonacci
+
+    ● Implement fibonacci: Int fibonacci(int n)
+        ○ Recall fibonacci sequence: 1 1 2 3 5 8 13 21 35
+        ○ E.g. fibonacci(6) = 13
+        ○ Recall that: fibonacci(n) = fibonacci(n-1) + fibonacci(n-2). 
+            E.g. fib(6) = fib(5)+fib(4) =13
+        ■ So it calls 2 subproblems of its type
+    ● Can u compute fibonacci(40)? fibonacci(50)? Why? Any work around? Hint:
+    Array
+*/
+
+#include <iostream>
+using namespace std;
+
+int fibonacci(int n) {
+    if (n == 0 || n == 1)
+        return n;
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+
+void fibonacci_mine(int n) {
+    int n1 = 0, n2 =1, n3;
+    if (n < 0)
+        return;
+    n3 = n1 + n2;
+    n1 = n2;
+    n2 = n3;
+    cout << n3 << " ";
+    fibonacci_mine(n-1);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << fibonacci(n) << "\n";
+    fibonacci_mine(n);
+    return 0;
+}
