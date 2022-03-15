@@ -1,3 +1,7 @@
+
+to increase the speed of internet on arch linux install reflector, rsync and run 
+sudo reflector --latest 20 --sort rate --download-timeout 60 --save /etc/pacman.d/mirrorlist
+
 to disable screen blacking during idle put these command to .xinitrc
 xset -dpms
 xset s off

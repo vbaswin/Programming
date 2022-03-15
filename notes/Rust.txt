@@ -1,0 +1,14 @@
+to install rust
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+check if rust is installed correctly
+rustc --version
+
+update rust
+rustup update
+
+uninstall rust
+rustup self uninstall
+
+run a rust program 
+rustc filename && ./main

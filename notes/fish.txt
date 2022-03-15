@@ -1,3 +1,7 @@
+
+to set path variables 
+set -Ua fish_user_paths $HOME/.cargo/bin  :: for rust
+
 >>>>>>> fuzzy finder in fish shift+tab life changer
 if you are already using tab to activate this <ctrl>s 
         ie: to toggle search field while the pager is active
