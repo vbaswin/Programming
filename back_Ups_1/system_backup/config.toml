@@ -4,6 +4,6 @@ false_chr = "❌"
 future_chr = "·"
 
 [colors]
-reached = "cyan"
-todo = "magenta"
+reached = "green"
+todo = "red"
 inactive = "light black"
