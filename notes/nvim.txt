@@ -260,6 +260,41 @@ or use this in a new tab to open the file in it
 *************** folds ****************
 zf{motion}
 
+>>>>>> you don't need marks at all just visual select and enter zf <<<<<<<< 
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+to transfer the folds to same copy of file or other file go to 
+/home/vbaswin/.local/share/nvim/view
+
+here all the :mkview command data are stored
+
+if the folds are not automaitic add this to init.vim file
+
+" set autosave folds on exit
+augroup remember_folds
+  autocmd!
+  au BufWinLeave ?* mkview 1
+  au BufWinEnter ?* silent! loadview 1
+augroup END
+
+if not automatic then use :mkview to save the data go to .local/share/nvim/view/
+location and cp the original file and give the new file name as the path to that file
+
+eg: 
+
+cp \~=+prgmg=+c++=+mst_cri_skls=+13_project=+hospital_system.cpp=1.vim ~=+chumma.cpp=1.vim
+
+or
+
+cp \~=+prgmg=+c++=+mst_cri_skls=+13_project=+hospital_system.cpp=1.vim \~=+prgmg=+c++=+mst_cri_skls=+13_project=+hospital_system_sir.cpp=1.vim  
+
+%%%%%%%%%%%%%%%%%%%%%%% if not working :source % then look 
+if the same name ie; 1.vim or 2.vim is present cp will override the replace the file if it 
+exists
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 zf'a - to start a fold from current line to mark a
 zf3j - folds current line along with below 3 lines 
 
@@ -282,10 +317,8 @@ state the file was in at the time you ran :mkview
 a number and reload later on.
 eg: :mkview 2 make a few changes, and then run :loadview 2, it will revert to the previous state of the file as far as folds are concerned. Note that it won’t restore the file itself to the previous state; if you delete 10 lines of text after saving a view, Vim won’t restore those lines when you load an older view using :loadview.
 
-it can be done automatically by adding the 
 
-
-************** marks *****************
+************** marks ***********
 
 m{lowercase} eg: ma
 this sets the mark to a
@@ -331,3 +364,6 @@ to delete marks :delm or delmarks
 :delmarks aA 	delete marks a, A
 :delmarks! 	delete all lowercase marks for the current buffer (a-z
 
+
+<ctrl>o => open previously opend file
+<ctrl>i => open previously closed file

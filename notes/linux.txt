@@ -1,0 +1,8 @@
+to run a bash file change permission of file first
+
+chmod +x /path/to/yourscript.sh or 
+chmod +x yourscript.sh => if you are in the same directory
+
+then run either /path/to/yourscript.sh
+or ./yourscript.sh  . stands for current directory 
+

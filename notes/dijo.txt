@@ -1,0 +1,1 @@
+the data is stored int home/.local/share/dijo

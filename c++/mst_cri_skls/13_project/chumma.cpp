@@ -19,11 +19,9 @@
 using namespace std;
 
 const int MAX_SPECIALIZATION = 20, MAX_QUEUE = 5;
-
-// rows are 1-indexed and col 0-indexed --- most important
-string name[MAX_SPECIALIZATION+1][MAX_QUEUE]; 
-int status[MAX_SPECIALIZATION+1][MAX_QUEUE];
-int queue[MAX_SPECIALIZATION+1];
+string name[MAX_SPECIALIZATION][MAX_QUEUE];
+int status[MAX_SPECIALIZATION][MAX_QUEUE];
+int queue[MAX_SPECIALIZATION] = {0}; 
 
 void shift_right(int specl) {
     for (int i = queue[specl]; i > 0; --i) {
@@ -67,10 +65,10 @@ void print_all() {
             << i << "\n";
         for (int j = 0; j < queue[i]; ++j) {
             cout << name[i][j]; 
-            if (status[i][j])
-                cout << " urgent\n";
-            else
+            if (status[i][j] == 0)
                 cout << " regular\n";
+            else
+                cout << " urgent\n";
         }
     }
 };
