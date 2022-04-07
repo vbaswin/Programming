@@ -1,0 +1,15 @@
+install zathura-pdf-poppler - for pdf files
+<ctrl>r for night mode
+zoom in or out + -
+= for 100 % zoom
+
+to print :print
+h and k to move while you are in zoom mode 
+
+to activate a link in pdf type f
+
+
+int .config/zathura/zathurarc
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1

@@ -1,0 +1,9 @@
+to create a split window ctrl+shift+enter
+
+to move between split windows ctrl + shift + [ or ]
+
+to change the layout ctrl + shift + L
+
+to create a new tab ctrl + shift + t
+
+to move between tabs ctrl + shift + right or left arrows

@@ -6,8 +6,11 @@ to disable screen blacking during idle put these command to .xinitrc
 xset -dpms
 xset s off
 
+if some packages are not uninstalling use sudo pacman -Rc <package name> :)
+
 to remove all unnecessary packages in arch linux
-sudo pacman -R $(pacman -Qdtq) >> in bash not fish
+sudo pacman -Rns $(pacman -Qdtq) >> in bash not fish
+
 
 to install hp drivers
 
