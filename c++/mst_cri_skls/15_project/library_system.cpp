@@ -8,7 +8,7 @@ struct book {
     int id;
     string name;
     int quantity;
-    int borrwed;
+    int borrowed;
 
     book() {
         id = 0;
@@ -54,6 +54,9 @@ struct book {
         ++borrowed;
         return true;
     }
+    void return_book() {
+        --borrowed;
+    }
 };
 
 struct user {
@@ -84,6 +87,32 @@ struct user {
     }
     void borrow(int book_id) {
         book_ids[borrow_no++] = book_id;
+        sort(book_ids, book_ids + borrow_no);
+    }
+    void check_borrow(int book_idx) {
+        for (int i = 0; i < borrow_no; ++i) {
+            if (book_idx == book_ids[i]) {
+                cout << username << "\n";
+                    return;
+            }
+        }
+    }
+    void shift_right(int pos) {
+        for (int i = pos; i < borrow_no -1; ++i)
+            book_ids[i] = book_ids[i+1];
+        --borrow_no;
+    }
+    void return_book(int book_id) {
+        int i;
+        for (i = 0; i < borrow_no; ++i) {
+            if (book_id == book_ids[i])
+                break;
+        }
+        if (i == borrow_no) {
+            cout << "No such book was borrowed\n";
+            return;
+        }
+        shift_right(i);
     }
 };
 
@@ -118,7 +147,8 @@ struct library_system {
                 books[len_book++].add_book();
             else if (choice == 2)
                 search_books();
-            else if (choice == 3);
+            else if (choice == 3)
+                print_who_borrowed_book_by_name();
             else if (choice == 4)
                 print_library_by_id();
             else if (choice == 5)
@@ -127,7 +157,8 @@ struct library_system {
                 users[len_user++].add_user();
             else if (choice == 7)
                 user_borrow_book();
-            else if (choice == 8);
+            else if (choice == 8)
+                user_return_book();
             else if (choice == 9)
                 print_users(); 
             else if (choice == 10)
@@ -135,6 +166,20 @@ struct library_system {
             else
                 cout << "Incorrect input\n";
         }
+    }
+    void user_return_book() {
+        string u_str, b_str;
+        cout << "Enter username and book name: ";
+        cin >> u_str >> b_str;
+
+        int book_idx = book_index(b_str);
+        int user_idx = user_index(u_str);
+        if (book_idx == -1) {
+            cout << "book not found\n";
+            return;
+        }
+        books[book_idx].return_book();
+        users[user_idx].return_book(books[book_idx].id);
     }
     int user_index(string u_str) {
         int res, i;
@@ -176,6 +221,21 @@ struct library_system {
             return;
         users[user_idx].borrow(books[book_idx].id);
     }
+    void print_borrow(int book_idx) {
+        for (int i = 0; i < len_user; ++i)
+            users[i].check_borrow(book_idx);
+    }
+    void print_who_borrowed_book_by_name() {
+        cout << "Enter book name: ";
+        string str;
+        cin >> str;
+        int book_idx = book_index(str);
+        if (book_idx == -1) {
+            cout << "book not found\n";
+            return;
+        }
+        print_borrow(books[book_idx].id);         
+    }
     void search_books() {
         cout << "Enter name or part of name: ";
         string str;
@@ -215,7 +275,7 @@ struct library_system {
 };
 
 int main() {    
-    // freopen("c.in", "rt", stdin);
+    freopen("c.in", "rt", stdin);
     library_system library = library_system();
     library.run();
     return 0;

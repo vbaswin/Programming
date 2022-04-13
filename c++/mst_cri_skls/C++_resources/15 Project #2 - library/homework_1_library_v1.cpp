@@ -356,8 +356,8 @@ int main() {
 7 ali math1
 7 ali math2
 7 noha math1
-7 noha math3
-7 noha prog2
+7 noha math1
+7 noha math2
 
 4
 9

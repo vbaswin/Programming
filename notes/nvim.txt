@@ -274,7 +274,7 @@ to open a file in the current window when working with a file use
 :vi <file name>
 or use this in a new tab to open the file in it
 
-*************** folds ****************
+*************** folds **************** {
 zf{motion}
 
 >>>>>> you don't need marks at all just visual select and enter zf <<<<<<<< 
@@ -321,6 +321,7 @@ zM - closes all folds
 zR - opens all folds <<<<< 
 zm - increases foldlevel by one
 zr - decrease foldlevel by one
+zx - to open current fold and close all others <<<<<<<<<<<
 
 zd - to delete folds at cursor position (no text deleted only fold markers)
 zD - to recursively delete folds at cursor
@@ -335,7 +336,7 @@ a number and reload later on.
 eg: :mkview 2 make a few changes, and then run :loadview 2, it will revert to the previous state of the file as far as folds are concerned. Note that it won’t restore the file itself to the previous state; if you delete 10 lines of text after saving a view, Vim won’t restore those lines when you load an older view using :loadview.
 
 
-************** marks ***********
+************** marks *********** }
 
 m{lowercase} eg: ma
 this sets the mark to a
