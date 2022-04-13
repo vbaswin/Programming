@@ -1,7 +1,24 @@
+gf to open file specified above the cursor
+
+>>>>>>> visual block >>>>>
+<ctrl-v>I   : inserts to eh left of visual block
+<ctrl-v>A   : appends to the right of the visual block
+<ctrl-v>c   : to change the visual block
+<ctrl-v>d   : to delete the visual block
+
+to select till the end of select lines from the cursor position
+start <ctrl-v> then $ then j or k
+
+increment select using <ctrl-v> then g <ctrl-a>
+
+>>>>>>
+
+'. => last edit location then use
+g; & g, to move back and forward in the list of your previous edit locations
+
 `` or '': to move to prev cursor >> most preferred `` apostrophes as they will move
                                     cursor to not the postion but backticks just 
                                     puts it at the start of the line
-g; & g, to move back and forward in the list of your previous edit locations
 
 
 <ctrl>w - cut one word to left

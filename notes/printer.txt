@@ -1,0 +1,3 @@
+to delete all the queue
+run lprm -
+then run lpq to check if all the process are cancelled

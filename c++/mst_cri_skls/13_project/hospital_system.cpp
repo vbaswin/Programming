@@ -97,7 +97,7 @@ void get_next_patient() {
     }
     cout << name[specl][0] << " please go with Dr\n";
     shift_left(specl);
-};
+}
 
 void menu() {
     int choice;

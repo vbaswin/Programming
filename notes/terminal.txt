@@ -22,3 +22,27 @@
     Ctrl+n Next command from the History
     Ctrl+p previous command from the History
 
+
+You can separate multiple commands by ;, so they are executed sequentially, for example:
+
+really_long_script.sh ; echo Finished
+
+If you wish to execute next program only if the script finished with return-code 0 (which usually means it has executed correctly), then:
+
+really_long_script.sh && echo OK
+
+If you want the opposite (i.e. continue only if current command has failed), than:
+
+really_long_script.sh || echo FAILED
+
+You could run your script in a background (but beware, scripts output (stdout and stderr) would continue to go to your terminal unless you redirect it somewhere), and then wait for it:
+
+really_long_script.sh &
+dosomethingelse
+wait; echo Finished
+
+If you have already run script, you could suspend it with Ctrl-Z, and then execute something like:
+
+fg ; echo Finished
+
+Where fg brings the suspended process to foreground (bg would make it run in background, pretty much like started with &)
