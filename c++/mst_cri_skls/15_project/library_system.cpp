@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-const int MAX = 100;
+const int MAX = 10;
 
 struct book {
     int id;
@@ -120,6 +120,7 @@ struct library_system {
     book books[MAX];
     user users[MAX];
     int len_book, len_user;
+
     library_system() {
         len_book = 0;
         len_user = 0;

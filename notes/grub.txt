@@ -1,0 +1,20 @@
+install efibootmgr
+display current settings: efibootmgr
+to show verbose information: efibootmgr -v
+changing boot order: sudo efibootmgr -o xxxx,xxxx
+
+adding boot entry
+sudo grub-install --target=x86_64-efi --efi-directory=/efi/ --bootloader-id=Arch_Linux
+// this will create a arch linux named boot loader
+
+deleting boot entry
+: sudo efibootmgr -b xxxx -B
+-b to specify the boot number -B to delete the boot number
+
+A boot entry followed by asterisk indicates that it’s active. Otherwise it’s inactive. To set a boot entry active, run:
+
+sudo efibootmgr -b <bootnum> -a
+
+To set a boot entry inactive, run:
+
+sudo efibootmgr -b <bootnum> -A
