@@ -1,0 +1,5 @@
+to increase the brightness
+xrandr --output output_name --brightness <no>
+1 for normal
+> 1 to make it more bright
+< 1 less bright

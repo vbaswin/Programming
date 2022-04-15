@@ -68,6 +68,7 @@ struct user {
     user() {
         username = "";
         national_id = 0;
+        borrow_no = 0;
     }
     void add_user() {
         cout << "Enter your username and national id: ";
