@@ -8,6 +8,9 @@ h and k to move while you are in zoom mode
 
 to activate a link in pdf type f
 
+to copy a text to clipboard
+set selection-clipboard clipboard in .config/zathura/zathurarc
+
 
 int .config/zathura/zathurarc
 set statusbar-h-padding 0
