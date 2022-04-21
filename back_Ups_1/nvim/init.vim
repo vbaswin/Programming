@@ -39,6 +39,13 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i
+inoremap {<CR> {<CR>}<Esc>O
+inoremap [ []<Esc>i
+inoremap < <><Esc>i
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
 
 lua << EOF
 require('telescope').setup{
