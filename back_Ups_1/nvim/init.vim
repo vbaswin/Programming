@@ -39,6 +39,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
@@ -46,6 +47,9 @@ inoremap [ []<Esc>i
 inoremap < <><Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
+inoremap /* /**/<Esc>hi
+inoremap /*<CR> /*<CR>*/<Esc><<O
+inoremap // // <Esc>a
 
 lua << EOF
 require('telescope').setup{
