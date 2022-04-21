@@ -26,3 +26,20 @@ int main() {
     //cout << MyMax<Employee>(a, b) << "\n";
     return 0;
 }
+
+/*
+    Generation
+    
+    Different versions of function MyMax are generated on compile time using
+    the template
+        Compiler generates ONLY based on the used cases
+            ■ E.g. in previous code it generates 3 functions:
+            ■ Int MyMax(int, int) / double MyMax(double, double) / 
+            char MyMax(char, char)
+
+    I did not name function max, I used MyMax
+        Max is defined internally, it will cause error. Try it
+    In practice:
+        Might be complex and hard to apply
+        Error messages: Hard to understand and ugle. Try to generate mistakes :(
+*/
