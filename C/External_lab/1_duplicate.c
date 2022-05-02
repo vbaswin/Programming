@@ -27,15 +27,14 @@ node *create() {
 void delete_duplicate(node **head) {
     node *tmp, *tmp2, *parent;
     for (tmp = *head; tmp != NULL; tmp = tmp->link) {
-        parent = *head;
-        for (tmp2 = tmp->link; tmp2 != NULL;) {
+        parent = tmp;
+        for (tmp2 = tmp->link; tmp2 != NULL; tmp2 = tmp2->link) {
             if (tmp->data == tmp2->data) {
                 parent->link = tmp2->link;
                 ++tmp->cnt;
                 continue;
             }
             parent = tmp2;
-            tmp2 = tmp2->link;
         }
     }
 }
@@ -55,6 +54,8 @@ int main() {
     node *head = create(); 
     display(head);
     delete_duplicate(&head);
+    printf("\n");
+    display(head);
     display_cnt(head);
     return 0;
 }
