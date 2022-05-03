@@ -1,3 +1,7 @@
+*******
+<ctrl>o => open previously opend file
+<ctrl>i => open previously closed file
+
 gf to open file specified above the cursor
 
 >>>>>>> visual block >>>>>
@@ -383,5 +387,3 @@ to delete marks :delm or delmarks
 :delmarks! 	delete all lowercase marks for the current buffer (a-z
 
 
-<ctrl>o => open previously opend file
-<ctrl>i => open previously closed file

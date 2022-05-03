@@ -18,27 +18,24 @@ void swap(int *a, int *b) {
 }
 
 void merge(int arr[], int start, int mid, int end) {
-    int n1 = mid-start+1;
-    int n2 = end-mid;
-    int L[n1], R[n2];
+    int i = start;
+    int j = mid+1;
+    int b[end-start+1];
 
-    int i, j , k;
-    for (i = 0; i < n1; ++i)
-        L[i] = arr[i+start];
-    for (i = 0; i < n2; ++i)
-        R[i] = arr[mid +i+1];
-    
-    i = 0, j = 0, k = start;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) 
-            arr[k++] = L[i++];
-        else 
-            arr[k++] = R[j++];
+    int k = 0;
+    while (i <= mid && j <= end) {
+        if (arr[i] <= arr[j])
+            b[k++] = arr[i++];
+        else
+            b[k++] = arr[j++];
     }
-    while (i < n1) 
-        arr[k++] = L[i++];
-    while (j < n2)
-        arr[k++] = R[j++];
+    while (i <= mid)
+        b[k++] = arr[i++];
+    while (j <= end)
+        b[k++] = arr[j++];
+    for (int i = 0; i < k; ++i)
+        arr[start++] = b[i];
+
 }
 
 void merge_sort(int arr[], int start, int end) {
