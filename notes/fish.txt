@@ -1,4 +1,20 @@
+# Define alias in shell
+alias rmi "rm -i"
 
+# Define alias in config file
+alias rmi="rm -i"
+
+# This is equivalent to entering the following function:
+function rmi
+    rm -i $argv
+end
+
+# Then, to save it across terminal sessions:
+funcsave rmi
+
+>> to remove alias : functions -e rmi
+
+CTRL-N/DOWN: The next command in history.
 to set path variables 
 set -Ua fish_user_paths $HOME/.cargo/bin  :: for rust
 
@@ -46,4 +62,3 @@ Accessing Command History
 CTRL-R: Search the command history. Accept with ENTER/RETURN, abort with CTRL-G.
 CTRL-P/UP: The previous command in history.
 CTRL-N/DOWN: The next command in history.
-
