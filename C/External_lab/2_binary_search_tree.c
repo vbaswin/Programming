@@ -8,9 +8,9 @@ typedef struct nodes {
     struct nodes *rc;
 } node;
 
-node *create_newnode(int key) {
+node *create_newnode(int data) {
     node *newnode = (node *)malloc(sizeof(node));
-    newnode->data = key;
+    newnode->data = data;
     return newnode;
 }
 
@@ -22,47 +22,59 @@ void inorder(node *link) {
     inorder(link->rc);
 }
 
-node *insert(node *link, int key) {
+node *insert(node *link, int data) {
     if (link == NULL)
-        return create_newnode(key);
-    if (key < link->data)
-        link->lc = insert(link->lc, key);
-    else if(key > link->data)
-        link->rc = insert(link->rc, key);
+        return create_newnode(data);
+    if (data < link->data)
+        link->lc = insert(link->lc, data);
+    else if(data > link->data)
+        link->rc = insert(link->rc, data);
     return link;
 }
 
 node *search(node *link, int num) {
-    if (link == NULL)
-        return NULL;
-    int data = link->data;
-    if (num == data) 
+    if (link == NULL || link->data == num)
         return link;
-    else if (num < data)
+    if (num < link->data)
         return search(link->lc, num);
 
     return search(link->rc, num);
 }
 
-node *inorder_successor(node *link) {
-    if (link == NULL)
-        return;
-    if (link->rc == NULL)
-        return link;
-    return inorder_successor(link->rc);    
+node *inorder_successor(node *root) {
+    node *current = root;
+    while (current && current->lc != NULL)
+        current = current->lc;
+    return current;
 }
 
-void delete(node *root) {
-    printf("Enter data: ");
-    int num;
-    scanf("%d", &num);
-    node *data = search(root);
-    if (data == NULL) {
-        printf("Data not found!\n");
-        return;
+node *delete(node *root, int num) {
+    if (root == NULL)
+        return NULL;
+    else if (root->data > num)
+        root->lc = delete(root->lc, num);
+    else if (root->data < num)
+        root->rc = delete(root->rc, num);
+    else {
+        if (root->lc == NULL && root->rc == NULL)
+            return NULL;
+        else if (root->lc == NULL) {
+            node *tmp = root->rc;
+            free(root);
+            return tmp;
+        }
+        else if (root->rc == NULL) {
+            node *tmp = root->lc;
+            free(root);
+            return tmp;
+        }
+        else {
+            node *in_suc = inorder_successor(root->rc);
+            root->data = in_suc->data;
+            root->rc = delete(root->rc, in_suc->data);
+        }
     }
-    node *successor = inorder_successor(data->lc);
-
+    return root;
 }
 
 void menu() {
@@ -72,14 +84,14 @@ void menu() {
     while (1) {
         printf("Enter i[insert], s[search], d[delete], e[exit]: ");
         scanf(" %c", &choice);
+        int num;
         if(choice == 'i') { 
-            int key;
+            int data;
             printf("Enter data to insert: ");
-            scanf("%d", &key);
-            root = insert(root, key);
+            scanf("%d", &data);
+            root = insert(root, data);
         }
         else if (choice == 's') {
-            int num;
             printf("Enter data to search: ");
             scanf("%d", &num);
             node *result = NULL;
@@ -89,8 +101,11 @@ void menu() {
             else
                 printf("Data present!\n");
         }
-        else if (choice == 'd')
-            delete(&root);
+        else if (choice == 'd') {
+            printf("Enter data: ");
+            scanf("%d", &num);
+            root = delete(root, num);
+        }
         else if (choice == 'e')
             break;
         else

@@ -1,0 +1,4 @@
+On web, enter http://localhost:631/printers/
+Click on printer to be deleted.
+Select Delete Printer in Administration drop-down list.
+Confirm Delete Printer by clicking on it.
