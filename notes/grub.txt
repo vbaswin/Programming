@@ -4,7 +4,7 @@ to show verbose information: efibootmgr -v
 changing boot order: sudo efibootmgr -o xxxx,xxxx
 
 adding boot entry
-sudo grub-install --target=x86_64-efi --efi-directory=/efi/ --bootloader-id=Arch_Linux
+sudo grub-install --target=x86_64-efi --efi-directory=/efi/ --bootloader-id=ARCH_LINUX
 // this will create a arch linux named boot loader
 
 deleting boot entry
