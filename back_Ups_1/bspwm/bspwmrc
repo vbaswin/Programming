@@ -4,7 +4,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 xsetroot -cursor_name right_ptr
 
-redshift -P -O 4000 &
+redshift -P -O 4500 &
 kitty &
 
 xinput set-button-map 11 3 2 1 &
