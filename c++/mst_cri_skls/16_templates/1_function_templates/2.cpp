@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// class and typename are same only just another syntax
 template<class Type1, class Type2> 
 Type1 sum(Type1 a, Type2 b){
     Type1 r = a + b;

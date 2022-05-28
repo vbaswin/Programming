@@ -26,7 +26,6 @@ int main() {
     //cout << MyMax<Employee>(a, b) << "\n";
     return 0;
 }
-
 /*
     Generation
     

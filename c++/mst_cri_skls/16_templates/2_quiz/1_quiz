@@ -1,0 +1,14 @@
+/*
+   Templates thus helps in building generic code-
+   Generic code are codes written in terms of types-to-be-specified-later
+   ie; same code works for different data types
+
+   Compiler does type checking before template expansion. 
+   source code contains functions/class, but compiled code may contain
+   mulitple copies of same function/class
+
+   helps to avoid code duplication
+   
+   Examples of function templates are sort(), max(), min()
+   except isupper - mainly for characters
+*/
