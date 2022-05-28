@@ -1,3 +1,4 @@
-if test -f /home/vbaswin/.autojump/share/autojump/autojump.fish; . /home/vbaswin/.autojump/share/autojump/autojump.fish; end
-set fish_greeting
-
+if status is-interactive
+    set fish_greeting
+    export PATH="$HOME/.cargo/bin:$PATH"
+end

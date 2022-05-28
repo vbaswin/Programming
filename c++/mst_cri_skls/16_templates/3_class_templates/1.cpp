@@ -2,8 +2,11 @@
 using namespace std;
 
 template<typename T>
+// template <typename T, int SIZE> // to change the array size
 struct MyQueue {
     T arr[100];
+    // T arr[SIZE]; // it must be a const value- you don't read from 
+    // a user
     int pos;
 
     MyQueue() {

@@ -1,0 +1,4 @@
+/*
+   All template functions and classes are generated in the 
+   compilation time
+*/
