@@ -3,6 +3,7 @@ using namespace std;
 
 template<typename Function>
 auto sum_square(Function operation, auto...args) {
+    // it is taking square of the next number and adding themtill 0 
     return (operation(args) + ... + 0);
 }
 
