@@ -1,3 +1,7 @@
+sudo pacman -S cups hplip
+sudo systemctl enable --now cups
+sudo hp-setup -i
+
 On web, enter http://localhost:631/printers/
 Click on printer to be deleted.
 Select Delete Printer in Administration drop-down list.
@@ -5,3 +9,4 @@ Confirm Delete Printer by clicking on it.
 
 to check the available printers and so 
 lpstat --help
+
